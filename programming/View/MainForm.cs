@@ -170,12 +170,8 @@ namespace Programming.View
                 case View.Enums.WeekDay:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(WeekDay));
                     break;
-
-
             }
-
         }
-
         private void ParseButton_Click(object sender, EventArgs e)
         {
             string weekDay = WeekDayTextBox.Text;
@@ -189,7 +185,6 @@ namespace Programming.View
             {
                 ResultDayLabel.Text = "Нет такого дня недели";
             }
-
         }
         private void GoButton_Click(object sender, EventArgs e)
         {
@@ -216,5 +211,4 @@ namespace Programming.View
             }
         }
     }
-
 }
