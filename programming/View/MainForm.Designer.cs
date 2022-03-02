@@ -1,5 +1,5 @@
 ﻿
-namespace programming
+namespace Programming.View
 {
     partial class MainForm
     {
@@ -78,7 +78,6 @@ namespace programming
             this.tabPage.TabIndex = 0;
             this.tabPage.Text = "Enums";
             this.tabPage.UseVisualStyleBackColor = true;
-            this.tabPage.Click += new System.EventHandler(this.tabPage_Click);
             // 
             // WeekDayGroupBox
             // 
@@ -159,7 +158,7 @@ namespace programming
             this.IntValueTextBox.Name = "IntValueTextBox";
             this.IntValueTextBox.Size = new System.Drawing.Size(182, 26);
             this.IntValueTextBox.TabIndex = 2;
-            this.IntValueTextBox.TextChanged += new System.EventHandler(this.ValueTextBox_TextChanged);
+
             // 
             // ValuesListBox
             // 
@@ -179,7 +178,7 @@ namespace programming
             this.ValueLabel.Size = new System.Drawing.Size(98, 17);
             this.ValueLabel.TabIndex = 4;
             this.ValueLabel.Text = "Choose value:";
-            this.ValueLabel.Click += new System.EventHandler(this.ValueLabel_Click);
+
             // 
             // EnumerationLabel
             // 
@@ -189,7 +188,7 @@ namespace programming
             this.EnumerationLabel.Size = new System.Drawing.Size(143, 17);
             this.EnumerationLabel.TabIndex = 3;
             this.EnumerationLabel.Text = "Choose enumeration:";
-            this.EnumerationLabel.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // EnumsListBox
             // 
@@ -229,7 +228,7 @@ namespace programming
             this.SeasonLabel.Size = new System.Drawing.Size(110, 17);
             this.SeasonLabel.TabIndex = 0;
             this.SeasonLabel.Text = "Choose season:";
-            this.SeasonLabel.Click += new System.EventHandler(this.SeasonLabel_Click);
+
             // 
             // GoButton
             // 
@@ -253,7 +252,6 @@ namespace programming
             this.SeasonComboBox.Name = "SeasonComboBox";
             this.SeasonComboBox.Size = new System.Drawing.Size(176, 24);
             this.SeasonComboBox.TabIndex = 3;
-            this.SeasonComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ResultSeasonLabel
             // 
@@ -262,7 +260,7 @@ namespace programming
             this.ResultSeasonLabel.Name = "ResultSeasonLabel";
             this.ResultSeasonLabel.Size = new System.Drawing.Size(0, 17);
             this.ResultSeasonLabel.TabIndex = 4;
-            this.ResultSeasonLabel.Click += new System.EventHandler(this.label1_Click_1);
+
             // 
             // MainForm
             // 

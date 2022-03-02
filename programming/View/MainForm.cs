@@ -7,87 +7,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using programming.Model;
+using Programming.Model;
 
-namespace programming
+
+namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        public enum Colour
-        {
-            Red,
-            Grey,
-            Green,
-            Yellow,
-            Pink,
-            Blue,
-            Black,
-            White
-        }
+        //public enum Colour
+        //{
+        //    Red,
+        //    Grey,
+        //    Green,
+        //    Yellow,
+        //    Pink,
+        //    Blue,
+        //    Black,
+        //    White
+        //}
 
-        public enum FormOfStudy
-        {
-            FullTimeEducation,
-            ExtramuralStudies,
-            EveningTuition,
-            DistanceLearning
-        }
-        public enum Genre
-        {
-            Comedy,
-            Drama,
-            Thriller,
-            Action,
-            Horror,
-            Blockbuster
-        }
-        public enum Season
-        {
-            Winter,
-            Spring,
-            Summer,
-            Autumn
-        }
-        public enum SmartphoneManufacturer
-        {
-            Apple,
-            Samsung,
-            Honor,
-            Nokia,
-            LG,
-            Lenovo,
-            Sony
-        }
-        public enum WeekDay
-        {
-            Monday,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday,
-            Sunday
-        }
+        //public enum FormOfStudy
+        //{
+        //    FullTimeEducation,
+        //    ExtramuralStudies,
+        //    EveningTuition,
+        //    DistanceLearning
+        //}
+        //public enum Genre
+        //{
+        //    Comedy,
+        //    Drama,
+        //    Thriller,
+        //    Action,
+        //    Horror,
+        //    Blockbuster
+        //}
+        //public enum Season
+        //{
+        //    Winter,
+        //    Spring,
+        //    Summer,
+        //    Autumn
+        //}
+        //public enum SmartphoneManufacturer
+        //{
+        //    Apple,
+        //    Samsung,
+        //    Honor,
+        //    Nokia,
+        //    LG,
+        //    Lenovo,
+        //    Sony
+        //}
+        //public enum WeekDay
+        //{
+        //    Monday,
+        //    Tuesday,
+        //    Wednesday,
+        //    Thursday,
+        //    Friday,
+        //    Saturday,
+        //    Sunday
+        //}
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void ValueTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //IntValueTextBox.Text = ((int)ValuesListBox.SelectedItem).ToString();
-            String curItem = ValuesListBox.SelectedItem.ToString();
-            String enumItem = EnumsListBox.SelectedItem.ToString();
+            
+            string curItem = ValuesListBox.SelectedItem.ToString();
+            string enumItem = EnumsListBox.SelectedItem.ToString();
             switch (enumItem)
             {
                 case "Colour":
@@ -151,65 +142,37 @@ namespace programming
                     break;
             }
         }
-
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String curItem = EnumsListBox.SelectedItem.ToString();
-            switch (curItem)
+            IntValueTextBox.Clear();
+            switch (EnumsListBox.SelectedItem)
             {
-                case "Colour":
-                    ValuesListBox.Items.Clear();
-                    foreach (int i in Enum.GetValues(typeof(Colour)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(Colour), i));
-                    }
+                case View.Enums.Colour:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(Colour));
                     break;
 
-                case "FormOfStudy":
-                    ValuesListBox.Items.Clear();
-                    foreach(int i in Enum.GetValues(typeof(FormOfStudy)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(FormOfStudy), i));
-                    }
+                case View.Enums.FormOfStudy:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(FormOfStudy));
                     break;
 
-                case "Genre":
-                    ValuesListBox.Items.Clear();
-                    foreach(int i in Enum.GetValues(typeof(Genre)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(Genre), i));
-                    }
+                case View.Enums.Genre:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(Genre));
                     break;
 
-                case "Season":
-                    ValuesListBox.Items.Clear();
-                    foreach(int i in Enum.GetValues(typeof(Season)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(Season), i));
-                    }
+                case View.Enums.Season:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(Season));
                     break;
 
-                case "SmartphoneManufacturer":
-                    ValuesListBox.Items.Clear();
-                    foreach(int i in Enum.GetValues(typeof(SmartphoneManufacturer)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(SmartphoneManufacturer), i));
-                    }
+                case View.Enums.SmartphoneManufacturer:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(SmartphoneManufacturer));
                     break;
 
-                case "WeekDay":
-                    ValuesListBox.Items.Clear();
-                    foreach(int i in Enum.GetValues(typeof(WeekDay)))
-                    {
-                        ValuesListBox.Items.Add(Enum.GetName(typeof(WeekDay), i));
-                    }
+                case View.Enums.WeekDay:
+                    ValuesListBox.DataSource = Enum.GetValues(typeof(WeekDay));
                     break;
+
+
             }
-
-        }
-
-        private void tabPage_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -228,22 +191,6 @@ namespace programming
             }
 
         }
-
-        private void SeasonLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void GoButton_Click(object sender, EventArgs e)
         {
             string season = SeasonComboBox.SelectedItem.ToString();
@@ -266,14 +213,7 @@ namespace programming
                 case "Autumn":
                     GoButton.BackColor = Color.Yellow;
                     break;
-
             }
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 
