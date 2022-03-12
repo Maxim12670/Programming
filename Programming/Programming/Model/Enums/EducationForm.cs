@@ -8,7 +8,7 @@ namespace Programming.Model.Enums
 {
     public enum EducationForm
     {
-        Fulltime,
+        FullTime,
         Correspondence,
         Evening,
         Remote

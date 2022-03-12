@@ -12,7 +12,6 @@ namespace Programming.Model.Enums
         Orange,
         Yellow,
         Green,
-        Lightblue,
         Blue,
         Purple
     }

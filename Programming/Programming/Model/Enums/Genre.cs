@@ -10,7 +10,6 @@ namespace Programming.Model.Enums
     {
         Comedy,
         Acton,
-        Triller,
         Drama,
         Blockbuster,
         Horror

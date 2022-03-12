@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
+using Programming.View;
 
 
 namespace Programming.View
@@ -26,40 +27,40 @@ namespace Programming.View
             IntValueTextBox.Clear();
             switch (EnumsListBox.SelectedItem)
             {
-                case Programming.View.Enums.Colors:
+                case Enums.Colors:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(Colors));
                     break;
 
-                case Programming.View.Enums.EducationForm:
+                case Enums.EducationForm:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(EducationForm));
                     break;
 
-                case Programming.View.Enums.Genre:
+                case Enums.Genre:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(Genre));
                     break;
 
-                case Programming.View.Enums.Manufacture:
+                case Enums.Manufacture:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(Manufacture));
                     break;
 
-                case Programming.View.Enums.Season:
+                case Enums.Season:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(Season));
                     break;
 
-                case Programming.View.Enums.Weekday:
+                case Enums.Weekday:
                     ValuesListBox.DataSource = Enum.GetValues(typeof(Weekday));
                     break;
             }
         }
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var curedIndex = ValuesListBox.SelectedItem;
-            IntValueTextBox.Text = ((int)curedIndex).ToString();
+            var indexItem = ValuesListBox.SelectedItem;
+            IntValueTextBox.Text = ((int)indexItem).ToString();
         }
         private void GoButton_Click(object sender, EventArgs e)
         {
-            string season = SeasonComboBox.SelectedItem.ToString();
-            switch (SeasonComboBox.SelectedItem)
+            var season = SeasonComboBox.SelectedItem;
+            switch (season)
             {
                 case Season.Winter:
                     GoButton.BackColor = Color.Transparent;
@@ -82,11 +83,11 @@ namespace Programming.View
         }
         private void ParseWeekdayButton_Click(object sender, EventArgs e)
         {
-            string textWeekdayTextBox = WeekdayTextBox.Text;
+            var weekdayText = WeekdayTextBox.Text;
             Weekday value;
-            if (Enum.TryParse(textWeekdayTextBox, out value))
+            if (Enum.TryParse(weekdayText, out value))
             {
-                OutputWeekdayLabel.Text = $"Это день недели ({value} - {(int)value + 1})";
+                OutputWeekdayLabel.Text = $"Это день недели ({value} - {(int)value})";
             }
             else
             {
