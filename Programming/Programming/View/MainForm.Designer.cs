@@ -151,7 +151,7 @@
             // 
             // ParseWeekdayButton
             // 
-            this.ParseWeekdayButton.Location = new System.Drawing.Point(311, 47);
+            this.ParseWeekdayButton.Location = new System.Drawing.Point(307, 46);
             this.ParseWeekdayButton.Margin = new System.Windows.Forms.Padding(4);
             this.ParseWeekdayButton.Name = "ParseWeekdayButton";
             this.ParseWeekdayButton.Size = new System.Drawing.Size(100, 29);
@@ -162,7 +162,7 @@
             // 
             // WeekdayTextBox
             // 
-            this.WeekdayTextBox.Location = new System.Drawing.Point(12, 48);
+            this.WeekdayTextBox.Location = new System.Drawing.Point(8, 49);
             this.WeekdayTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.WeekdayTextBox.Multiline = true;
             this.WeekdayTextBox.Name = "WeekdayTextBox";
@@ -205,7 +205,7 @@
             this.EnamLabel.Name = "EnamLabel";
             this.EnamLabel.Size = new System.Drawing.Size(143, 17);
             this.EnamLabel.TabIndex = 1;
-            this.EnamLabel.Text = "Choose enumaration:";
+            this.EnamLabel.Text = "Choose enumeration:";
             // 
             // IntValueLabel
             // 
