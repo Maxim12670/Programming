@@ -9,18 +9,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
 using Programming.View;
+using Programming.Model;
+using Rectangle = Programming.Model.Classes.Rectangle;
 
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        const int CountElements = 5;
+
+        private Rectangle[] _rectangles;
+
+        private Rectangle _currentRectangle;
+
+        private Random _randomValues;
+
         public MainForm()
-        {
+        {   
             InitializeComponent();
             EnumsListBox.DataSource = Enum.GetValues(typeof(Enums));
             SeasonComboBox.DataSource = Enum.GetValues(typeof(Season));
             EnumsListBox.SelectedIndex = 0;
+            var valuesColor = Enums.GetValues(typeof(Colors));
+            _randomValues = new Random();
+            Rectangle[] _rectangles = new Rectangle[CountElements];
+            for(int i = 0; i < CountElements; i++)
+            {
+                _currentRectangle = new Rectangle();
+                _currentRectangle.Width = _randomValues.Next(100) / 10.0;
+                _currentRectangle.Lenght = _randomValues.Next(100) / 10.0;
+                _currentRectangle.Color = valuesColor.GetValue(_randomValues.Next(0, valuesColor.Length)).ToString();
+                _rectangles[i] = _currentRectangle;
+                RectangleListBox.Items.Add($"Rectangle {i + 1}");
+            }
+
         }
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -93,6 +116,15 @@ namespace Programming.View
             {
                 OutputWeekdayLabel.Text = "Нет такого дня недели!";
             }
+        }
+
+        private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexRectangle = RectangleListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndexRectangle];
+            LenghtTextBox.Text = _currentRectangle.Lenght.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString();
+            ColorTextBox.Text = _currentRectangle.Color.ToString() ;
         }
     }
 }
