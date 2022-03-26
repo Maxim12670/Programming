@@ -35,7 +35,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 | value > 23)
                 {
-                    throw new ArgumentException(message: "В сутках 24 часа!");
+                    throw new ArgumentException(message: "There are 24 hours in a day!");
                 }
 
                 _hours = value;
@@ -52,7 +52,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 | value > 60)
                 {
-                    throw new ArgumentException(message: "В часе 60 минут!");
+                    throw new ArgumentException(message: "There are 60 minutes in an hour!");
                 }
 
                 _minutes = value;
@@ -69,7 +69,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 | value > 60)
                 {
-                    throw new ArgumentException(message: "В минуте 60 секунд!");
+                    throw new ArgumentException(message: "There are 60 seconds in a minute!");
                 }
 
                 _seconds = value;

@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Film
+    public class Movie
     {
-        private string _name;
         private int _duration;
         private int _release;
-        private string _genre;
         private double _rating;
 
-        public Film()
+        public Movie()
         {
         }
 
-        public Film(string name,
+        public Movie(string name,
                 int duration,
                 int release,
                 string genre,
@@ -33,6 +31,8 @@ namespace Programming.Model.Classes
 
         public string Name { get; set; }
 
+        public string Genre { get; set; }
+
         public int Duration
         {
             get
@@ -43,7 +43,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "Продолжительность не может быть отрицательной!");
+                    throw new ArgumentException(message: "Duration cannot be negative!");
                 }
 
                 _duration = value;
@@ -60,14 +60,12 @@ namespace Programming.Model.Classes
             {
                 if(value < 1900)
                 {
-                    throw new ArgumentException(message: "Неверно выбран год!");
+                    throw new ArgumentException(message: "Wrong year selected!");
                 }
 
                 _release = value;
             }
         }
-
-        public string Genre { get; set; }
 
         public double Rating
         {
@@ -79,7 +77,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 | value > 10)
                 {
-                    throw new ArgumentException(message: "Рейтинг находится в промежутке от 0 до 10!");
+                    throw new ArgumentException(message: "The rating is between 0 and 10!");
                 }
 
                 _rating = value;

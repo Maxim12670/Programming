@@ -8,8 +8,6 @@ namespace Programming.Model.Classes
 {
     public class Trip
     {
-        private string _departurePoint;
-        private string _destination;
         private int _flightTime;
 
         public Trip()
@@ -39,7 +37,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "Продолжительность полета не может быть отрицальной!");
+                    throw new ArgumentException(message: "Flight duration cannot be negative!");
                 }
 
                 _flightTime = value;

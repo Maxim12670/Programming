@@ -8,7 +8,6 @@ namespace Programming.Model.Classes
 {
     public class Song
     {
-        private string _nameSong;
         private double _durationSong;
         private int _release;
 
@@ -37,7 +36,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "Продолжительность песни не может быть отрицальной!");
+                    throw new ArgumentException(message: "The length of the song cannot be negative!");
                 }
 
                 _durationSong = value;
@@ -54,7 +53,7 @@ namespace Programming.Model.Classes
             {
                 if(value < 0)
                 {
-                    throw new ArgumentException(message: "Дата выпуска не может быть отрицательной!");
+                    throw new ArgumentException(message: "Release date cannot be negative!");
                 }
 
                 _release = value;

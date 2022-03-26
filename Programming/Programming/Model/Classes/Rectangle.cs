@@ -32,9 +32,9 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
+                if (value <= 0)
                 {
-                    throw new ArgumentException(message: "Длина не может быть отрицательной!");
+                    throw new ArgumentException(message: "Length cannot be negative!");
                 }
 
                 _lenght = value;
@@ -49,9 +49,9 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
+                if (value <= 0)
                 {
-                    throw new ArgumentException(message: "Ширина не может быть отрицательной!");
+                    throw new ArgumentException(message: "Width cannot be negative!");
                 }
 
                 _width = value;

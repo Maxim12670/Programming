@@ -8,7 +8,6 @@ namespace Programming.Model.Classes
 {
     public class Discipline
     {
-        private string _subject;
         private int _rating;
         private int _numberOfLessons;
 
@@ -37,7 +36,7 @@ namespace Programming.Model.Classes
             {
                 if (value > 100 | value < 0)
                 {
-                    throw new ArgumentException(message: "Рейтин находится в промежутке от 0 до 100!");
+                    throw new ArgumentException(message: "The rating ranges from 0 to 100!");
                 }
 
                 _rating = value;
@@ -54,7 +53,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "Количество уроков не может быть меньше нуля!");
+                    throw new ArgumentException(message: "The number of lessons cannot be less than zero!");
                 }
 
                 _numberOfLessons = value;

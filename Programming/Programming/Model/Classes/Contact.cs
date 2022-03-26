@@ -8,9 +8,6 @@ namespace Programming.Model.Classes
 {
     public class Contact
     {
-        private string _nameHuman;
-        private string _city;
-        private string _address;
         private string _phoneNumber;
 
         public Contact()
@@ -41,12 +38,12 @@ namespace Programming.Model.Classes
             {
                 if (value.Length != 11)
                 {
-                    throw new ArgumentException(message:"Телефонный номер должен содержать 11 цифр!");
+                    throw new ArgumentException(message: "Phone number must contain 11 digits!");
                 }
                 
                 if (int.TryParse(value, out int num) == false)
                 {
-                    throw new ArgumentException(message: "Номер может содержать только цифры!");
+                    throw new ArgumentException(message: "The number can only contain numbers!");
                 }
 
                 _phoneNumber = value;
