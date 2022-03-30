@@ -9,7 +9,9 @@ namespace Programming.Model.Classes
     public class Time
     {
         private int _hours;
+
         private int _minutes;
+
         private int _seconds;
 
         public Time()
@@ -50,7 +52,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 60)
+                if (value < 0 | value > 59)
                 {
                     throw new ArgumentException(message: "There are 60 minutes in an hour!");
                 }

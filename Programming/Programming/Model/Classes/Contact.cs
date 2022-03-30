@@ -14,18 +14,18 @@ namespace Programming.Model.Classes
         {
         }
 
-        public Contact(string nameHuman,
+        public Contact(string name,
                        string city,
                        string address,
                        string phoneNumber)
         {
-            NameHuman = nameHuman;
+            Name = name;
             City = city;
             Address = address;
             PhoneNumber = phoneNumber;
         }
         
-        public string NameHuman { get; set; }
+        public string Name { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public string PhoneNumber

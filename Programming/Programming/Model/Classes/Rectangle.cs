@@ -8,36 +8,40 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
-        private double _lenght;
+        private double _length;
+
         private double _width;
 
         public Rectangle()
         {
         }
 
-        public Rectangle(double lenght,
+        public Rectangle(double length,
                         double width,
                         string color)
         {
-
+            Length = length;
+            Width = width;
+            Color = color;
         }
 
         public string Color { get; set; }
 
-        public double Lenght
+        public double Length
         {
             get
             {
-                return _lenght;
+                return _length;
             }
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException(message: "Length cannot be negative!");
+                    throw new ArgumentException(
+                        message: "Length cannot be negative!");
                 }
 
-                _lenght = value;
+                _length = value;
             }
         }
 
@@ -51,7 +55,8 @@ namespace Programming.Model.Classes
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException(message: "Width cannot be negative!");
+                    throw new ArgumentException(
+                        message: "Width cannot be negative!");
                 }
 
                 _width = value;

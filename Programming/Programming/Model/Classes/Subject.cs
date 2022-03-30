@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Discipline
+    public class Subject
     {
         private int _rating;
-        private int _numberOfLessons;
 
-        public Discipline()
+        private int _lessonsNumber;
+
+        public Subject()
         {
         }
 
-        public Discipline(string subject,
+        public Subject(string name,
                           int rating,
-                          int numberOfLessons)
+                          int lessonsNumber)
         {
-            Subject = subject;
+            Name = name;
             Rating = rating;
-            NumberOfLessons = numberOfLessons;
+            LessonsNumber = lessonsNumber;
         }
 
-        public string Subject { get; set; }
+        public string Name { get; set; }
 
         public int Rating
         {
@@ -34,7 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 100 | value < 0)
+                if (value < 0 | value > 100)
                 {
                     throw new ArgumentException(message: "The rating ranges from 0 to 100!");
                 }
@@ -43,20 +44,21 @@ namespace Programming.Model.Classes
             }
         }
 
-        public int NumberOfLessons
+        public int LessonsNumber
         {
             get
             {
-                return _numberOfLessons;
+                return _lessonsNumber;
             }
             set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "The number of lessons cannot be less than zero!");
+                    throw new ArgumentException(
+                        message: "The lessons number cannot be less than zero!");
                 }
 
-                _numberOfLessons = value;
+                _lessonsNumber = value;
             }
         }
     }

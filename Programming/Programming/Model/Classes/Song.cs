@@ -8,29 +8,32 @@ namespace Programming.Model.Classes
 {
     public class Song
     {
-        private double _durationSong;
-        private int _release;
+        private double _duration;
 
         public Song()
         {
         }
 
-        public Song(string nameSong,
-                    double durationSong,
-                    int release)
+        public Song(string name,
+                    double duration,
+                    string genre,
+                    string author)
         {
-            NameSong = nameSong;
-            DurationSong = durationSong;
-            Release = release;
+            Name = name;
+            Duration = duration;
+
         }
 
-        public string NameSong { get; set; }
+        public string Author { get; set; }
+        public string Genre { get; set; }
 
-        public double DurationSong
+        public string Name { get; set; }
+
+        public double Duration
         {
             get
             {
-                return _durationSong;
+                return _duration;
             }
             set
             {
@@ -39,24 +42,7 @@ namespace Programming.Model.Classes
                     throw new ArgumentException(message: "The length of the song cannot be negative!");
                 }
 
-                _durationSong = value;
-            }
-        }
-
-        public int Release
-        {
-            get
-            {
-                return _release;
-            }
-            set
-            {
-                if(value < 0)
-                {
-                    throw new ArgumentException(message: "Release date cannot be negative!");
-                }
-
-                _release = value;
+                _duration = value;
             }
         }
     }

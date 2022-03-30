@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Trip
+    public class flight
     {
-        private int _flightTime;
+        private int _time;
 
-        public Trip()
+        public flight()
         {
         }
 
-        public Trip(string departurePoint,
+        public flight(string departure,
                     string destination,
-                    int flightTime)
+                    int time)
         {
-            DeparturePoint = departurePoint;
+            Departure = departure;
             Destination = destination;
-            FlightTime = flightTime;
+            Time = time;
         }
 
-        public string DeparturePoint { get; set; }
+        public string Departure { get; set; }
 
         public string Destination { get; set; }
 
-        public int FlightTime
+        public int Time
         {
             get
             {
-                return _flightTime;
+                return _time;
             }
             set
             {
@@ -40,7 +40,7 @@ namespace Programming.Model.Classes
                     throw new ArgumentException(message: "Flight duration cannot be negative!");
                 }
 
-                _flightTime = value;
+                _time = value;
             }
         }
     }

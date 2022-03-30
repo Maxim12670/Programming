@@ -9,7 +9,9 @@ namespace Programming.Model.Classes
     public class Movie
     {
         private int _duration;
+
         private int _release;
+
         private double _rating;
 
         public Movie()
@@ -43,7 +45,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(message: "Duration cannot be negative!");
+                    throw new ArgumentException(
+                        message: "Duration cannot be negative!");
                 }
 
                 _duration = value;
@@ -58,9 +61,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if(value < 1900)
+                if (1900 > value | value > DateTime.Now.Year)
                 {
-                    throw new ArgumentException(message: "Wrong year selected!");
+                    throw new ArgumentException(
+                        message: "Release is wrong!");
                 }
 
                 _release = value;
