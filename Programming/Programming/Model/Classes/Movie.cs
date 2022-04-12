@@ -43,12 +43,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        message: "Duration cannot be negative!");
-                }
-
+                Validator.AssertOnPositiveValue(value, "Duration");
                 _duration = value;
             }
         }
@@ -79,11 +74,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 10)
-                {
-                    throw new ArgumentException(message: "The rating is between 0 and 10!");
-                }
-
+                Validator.AssertValueInRange(value, 0, 10, "Rating");
                 _rating = value;
             }
         }

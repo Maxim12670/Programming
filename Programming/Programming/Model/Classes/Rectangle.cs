@@ -12,17 +12,21 @@ namespace Programming.Model.Classes
 
         private double _width;
 
+        private Point2D _center;
+
         public Rectangle()
         {
         }
 
         public Rectangle(double length,
                         double width,
-                        string color)
+                        string color,
+                        Point2D center)
         {
             Length = length;
             Width = width;
             Color = color;
+            Center = center;
         }
 
         public string Color { get; set; }
@@ -35,12 +39,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException(
-                        message: "Length cannot be negative!");
-                }
-
+                Validator.AssertOnPositiveValue(value, "Length");
                 _length = value;
             }
         }
@@ -53,14 +52,11 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException(
-                        message: "Width cannot be negative!");
-                }
-
+                Validator.AssertOnPositiveValue(value, "Width");
                 _width = value;
             }
         }
+
+        public Point2D Center { get; set; }
     }
 }

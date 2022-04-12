@@ -35,11 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 100)
-                {
-                    throw new ArgumentException(message: "The rating ranges from 0 to 100!");
-                }
-
+                Validator.AssertValueInRange(value, 0, 100, "Rating");
                 _rating = value;
             }
         }
@@ -52,12 +48,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        message: "The lessons number cannot be less than zero!");
-                }
-
+                Validator.AssertOnPositiveValue(value, "LessonsNumber");
                 _lessonsNumber = value;
             }
         }

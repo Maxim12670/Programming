@@ -35,11 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 23)
-                {
-                    throw new ArgumentException(message: "There are 24 hours in a day!");
-                }
-
+                Validator.AssertValueInRange(value, 0, 23, "Hours");
                 _hours = value;
             }
         }
@@ -52,11 +48,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 59)
-                {
-                    throw new ArgumentException(message: "There are 60 minutes in an hour!");
-                }
-
+                Validator.AssertValueInRange(value, 0, 59, "Minutes");
                 _minutes = value;
             }
         }
@@ -69,11 +61,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 60)
-                {
-                    throw new ArgumentException(message: "There are 60 seconds in a minute!");
-                }
-
+                Validator.AssertValueInRange(value, 0, 59, "Seconds");
                 _seconds = value;
             }
         }
