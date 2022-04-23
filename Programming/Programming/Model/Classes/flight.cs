@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class flight
+    public class Flight
     {
         private int _time;
 
-        public flight()
+        public Flight()
         {
         }
 
-        public flight(string departure,
+        public Flight(string departure,
                     string destination,
                     int time)
         {
@@ -35,11 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(message: "Flight duration cannot be negative!");
-                }
-
+                Validator.AssertOnPositiveValue(value, nameof(Time));
                 _time = value;
             }
         }

@@ -756,6 +756,7 @@
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // RectanglesLabel
             // 

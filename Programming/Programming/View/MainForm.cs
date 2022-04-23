@@ -12,6 +12,7 @@ using Programming.View;
 using Programming.Model;
 using Rectangle = Programming.Model.Classes.Rectangle;
 using Movie = Programming.Model.Classes.Movie;
+using Point2D = Programming.Model.Classes.Point2D;
 
 
 namespace Programming.View
@@ -28,13 +29,13 @@ namespace Programming.View
 
         private Movie _currentMovie;
 
-        private Rectangle[] _rectangles;
+        //private Rectangle[] _rectangles;
 
         private Rectangle _currentRectangle;
 
         private Random _random;
 
-        //private List<Rectangle> _rectangles;
+        private List<Rectangle> _rectangles;
 
         public MainForm()
         {
@@ -42,9 +43,12 @@ namespace Programming.View
             EnumsListBox.DataSource = Enum.GetValues(typeof(Enums));
             SeasonComboBox.DataSource = Enum.GetValues(typeof(Season));
             EnumsListBox.SelectedIndex = 0;
-            MakeRectangle();
-            //_random = new Random();
             MakeMovies();
+            _random = new Random();
+            _rectangles = new List<Rectangle>();
+
+            
+            //MakeRectangle();
         }
 
         private int FindMovieWithMaxRating(Model.Classes.Movie[] movies)
@@ -62,11 +66,11 @@ namespace Programming.View
             return index;
         }
 
-        private int FindRectangleWithMaxWidth(/*List<Rectangle>*/ Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
         {
             double max = 0;
             int index = 0;
-            for (int i = 0; i < rectangles.Length; i++) //Count
+            for (int i = 0; i < rectangles.Count; i++)
             {
                 if (rectangles[i].Width > max)
                 {
@@ -77,24 +81,26 @@ namespace Programming.View
             return index;
         }
 
-        private void MakeRectangle()
-        {
-            //_rectangles = new List<Rectangle>(CountElements);
-            var valuesColor = Enums.GetValues(typeof(Colors));
-            _random = new Random();
-            _rectangles = new Rectangle[CountElements];
-            for (int i = 0; i < CountElements; i++)
-            {
-                _rectangles[i] = (new Rectangle(_random.Next(1, 100),
-                            _random.Next(1, 100),
-                            valuesColor.GetValue(_random.Next(0, valuesColor.Length)).ToString(),
-                            new Model.Classes.Point2D(_random.Next(1, 50), _random.Next(1, 50))));
-                RectangleListBox.Items.Add($"Rectangle {i + 1}");
-            }
-        }
+        //private void MakeRectangle()
+        //{
+        //    //_rectangles = new List<Rectangle>(CountElements);
+
+        //    var valuesColor = Enums.GetValues(typeof(Colors));
+        //    _random = new Random();
+        //    _rectangles = new Rectangle[CountElements];
+        //    for (int i = 0; i < CountElements; i++)
+        //    {
+        //        _rectangles[i] = (new Rectangle(_random.Next(1, 100),
+        //                    _random.Next(1, 100),
+        //                    valuesColor.GetValue(_random.Next(0, valuesColor.Length)).ToString(),
+        //                    new Model.Classes.Point2D(_random.Next(1, 50), _random.Next(1, 50))));
+        //        RectangleListBox.Items.Add($"Rectangle {i + 1}");
+        //    }
+        //}
 
         private void MakeMovies()
         {
+            _random = new Random();
             _movies = new Movie[CountElements];
             string nameMovie = "Harry Potter";
             var valuesGenre = Enums.GetValues(typeof(Genre));
@@ -116,7 +122,7 @@ namespace Programming.View
         {
             int selectedIndexRectangle = RectangleListBox.SelectedIndex;
             _currentRectangle = _rectangles[selectedIndexRectangle];
-            LenghtTextBox.Text = _currentRectangle.Length.ToString();
+            LenghtTextBox.Text = _currentRectangle.Lenght.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color.ToString();
             XTextBox.Text = _currentRectangle.Center.X.ToString();
@@ -214,7 +220,7 @@ namespace Programming.View
         {
             try
             {
-                _currentRectangle.Length = Double.Parse(LenghtTextBox.Text);
+                _currentRectangle.Lenght = Double.Parse(LenghtTextBox.Text);
                 LenghtTextBox.BackColor = CorrectColor;
             }
             catch
@@ -298,6 +304,23 @@ namespace Programming.View
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
             MoviesListBox.SelectedIndex = FindMovieWithMaxRating(_movies);
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            var colors = Enum.GetValues(typeof(Colors));
+            _currentRectangle = new Rectangle();
+            _currentRectangle.Width = _random.Next(1, 1000);
+            _currentRectangle.Lenght = _random.Next(1, 1000);
+            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
+            _rectangles.Add(_currentRectangle);
+
+            RectanglesListBox.Items.Add($"{_currentRectangle.Id}:" +
+                $"X= {_currentRectangle.Center.X}" +
+                $"Y= {_currentRectangle.Center.Y}" +
+                $"W= {_currentRectangle.Width}" +
+                $"H= {_currentRectangle.Lenght}");
         }
     }
 }

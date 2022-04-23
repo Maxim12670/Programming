@@ -25,6 +25,7 @@ namespace Programming.Model.Classes
         }
 
         public string Author { get; set; }
+
         public string Genre { get; set; }
 
         public string Name { get; set; }
@@ -37,7 +38,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Duration");
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }
