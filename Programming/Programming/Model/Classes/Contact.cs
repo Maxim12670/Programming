@@ -10,7 +10,9 @@ namespace Programming.Model.Classes
     public class Contact
     {
         private string _phoneNumber;
+
         private string _name;
+
         private string _surname;
 
         public Contact()
@@ -42,7 +44,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                AssertStringContainsOnlyLetters(value, "Name");
+                AssertStringContainsOnlyLetters(value, nameof(Name));
                 _name = value;
             }
         }
@@ -55,7 +57,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                AssertStringContainsOnlyLetters(value, "Surname");
+                AssertStringContainsOnlyLetters(value, nameof(Surname));
                 _surname = value;
             }
         }

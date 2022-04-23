@@ -43,7 +43,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Duration");
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }
@@ -56,12 +56,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (1900 > value | value > DateTime.Now.Year)
-                {
-                    throw new ArgumentException(
-                        message: "Release is wrong!");
-                }
-
+                Validator.AssertValueInRange(value, 1900, DateTime.Now.Year, nameof(Release));
                 _release = value;
             }
         }
@@ -74,7 +69,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(value, 0, 10, "Rating");
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
                 _rating = value;
             }
         }

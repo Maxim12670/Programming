@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    class Point2D
+    public class Point2D
     {
         private double _x;
 
         private double _y;
-
-        public Point2D() 
-        {
-        }
 
         public Point2D(int x,
                        int y)
@@ -31,7 +27,7 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, "X");
+                Validator.AssertOnPositiveValue(value, nameof(X));
                 _x = value;
             }
         }
@@ -44,7 +40,7 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, "Y");
+                Validator.AssertOnPositiveValue(value, nameof(Y));
                 _x = value;
             }
         }

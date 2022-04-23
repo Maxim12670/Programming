@@ -35,7 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(value, 0, 100, "Rating");
+                Validator.AssertValueInRange(value, 0, 100, nameof(Rating));
                 _rating = value;
             }
         }
@@ -48,7 +48,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "LessonsNumber");
+                Validator.AssertOnPositiveValue(value, nameof(LessonsNumber));
                 _lessonsNumber = value;
             }
         }

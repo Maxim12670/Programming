@@ -8,14 +8,18 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
+        private static int _allRectanglesCount;
+
         private double _length;
 
         private double _width;
 
-        private Point2D _center;
+        private int _id;        
 
         public Rectangle()
         {
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
         public Rectangle(double length,
@@ -27,9 +31,21 @@ namespace Programming.Model.Classes
             Width = width;
             Color = color;
             Center = center;
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
         public string Color { get; set; }
+
+        public Point2D Center { get; set; }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         public double Length
         {
@@ -39,7 +55,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Length");
+                Validator.AssertOnPositiveValue(value, nameof(Length));
                 _length = value;
             }
         }
@@ -52,11 +68,22 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Width");
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
         }
 
-        public Point2D Center { get; set; }
+        public int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+            set
+            {
+                Validator.AssertOnPositiveValue(value, nameof(AllRectanglesCount));
+                _allRectanglesCount = value;
+            }
+        }
     }
 }

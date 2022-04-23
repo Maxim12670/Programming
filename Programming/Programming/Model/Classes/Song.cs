@@ -25,6 +25,7 @@ namespace Programming.Model.Classes
         }
 
         public string Author { get; set; }
+
         public string Genre { get; set; }
 
         public string Name { get; set; }
@@ -37,11 +38,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(message: "The length of the song cannot be negative!");
-                }
-
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }

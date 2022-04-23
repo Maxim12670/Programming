@@ -18,11 +18,11 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        private const int CountElements = 5;
+
         private readonly Color CorrectColor = Color.White;
 
         private readonly Color ErrorColor = Color.LightPink;
-
-        private const int CountElements = 5;
 
         private Movie[] _movies;
 
@@ -34,6 +34,18 @@ namespace Programming.View
 
         private Random _random;
 
+        //private List<Rectangle> _rectangles;
+
+        public MainForm()
+        {
+            InitializeComponent();
+            EnumsListBox.DataSource = Enum.GetValues(typeof(Enums));
+            SeasonComboBox.DataSource = Enum.GetValues(typeof(Season));
+            EnumsListBox.SelectedIndex = 0;
+            MakeRectangle();
+            //_random = new Random();
+            MakeMovies();
+        }
 
         private int FindMovieWithMaxRating(Model.Classes.Movie[] movies)
         {
@@ -50,11 +62,11 @@ namespace Programming.View
             return index;
         }
 
-        private int FindRectangleWithMaxWidth(Model.Classes.Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth(/*List<Rectangle>*/ Rectangle[] rectangles)
         {
             double max = 0;
             int index = 0;
-            for (int i = 0; i < rectangles.Length; i++)
+            for (int i = 0; i < rectangles.Length; i++) //Count
             {
                 if (rectangles[i].Width > max)
                 {
@@ -65,24 +77,23 @@ namespace Programming.View
             return index;
         }
 
-        void MakeRectangle()
+        private void MakeRectangle()
         {
+            //_rectangles = new List<Rectangle>(CountElements);
             var valuesColor = Enums.GetValues(typeof(Colors));
             _random = new Random();
             _rectangles = new Rectangle[CountElements];
             for (int i = 0; i < CountElements; i++)
             {
-                _currentRectangle = new Rectangle();
-                _currentRectangle.Width = _random.Next(100) / 10.0;
-                _currentRectangle.Length = _random.Next(100) / 10.0;
-                _currentRectangle.Color = valuesColor.GetValue(
-                    _random.Next(0, valuesColor.Length)).ToString();
-                _rectangles[i] = _currentRectangle;
+                _rectangles[i] = (new Rectangle(_random.Next(1, 100),
+                            _random.Next(1, 100),
+                            valuesColor.GetValue(_random.Next(0, valuesColor.Length)).ToString(),
+                            new Model.Classes.Point2D(_random.Next(1, 50), _random.Next(1, 50))));
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
         }
 
-        void MakeMovies()
+        private void MakeMovies()
         {
             _movies = new Movie[CountElements];
             string nameMovie = "Harry Potter";
@@ -101,15 +112,30 @@ namespace Programming.View
             }
         }
 
-        public MainForm()
-        {   
-            InitializeComponent();
-            EnumsListBox.DataSource = Enum.GetValues(typeof(Enums));
-            SeasonComboBox.DataSource = Enum.GetValues(typeof(Season));
-            EnumsListBox.SelectedIndex = 0;
-            MakeRectangle();
-            MakeMovies();
+        private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexRectangle = RectangleListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndexRectangle];
+            LenghtTextBox.Text = _currentRectangle.Length.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString();
+            ColorTextBox.Text = _currentRectangle.Color.ToString();
+            XTextBox.Text = _currentRectangle.Center.X.ToString();
+            YTextBox.Text = _currentRectangle.Center.Y.ToString();
+            IdTextBox.Text = _currentRectangle.Id.ToString();
+
         }
+
+        private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexMovie = MoviesListBox.SelectedIndex;
+            _currentMovie = _movies[selectedIndexMovie];
+            DurationTextBox.Text = _currentMovie.Duration.ToString();
+            ReleaseTextBox.Text = _currentMovie.Release.ToString();
+            RatingTextBox.Text = _currentMovie.Rating.ToString();
+            NameTextBox.Text = _currentMovie.Name.ToString();
+            GenreTextBox.Text = _currentMovie.Genre.ToString();
+        }
+
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             IntValueTextBox.Clear();
@@ -182,15 +208,6 @@ namespace Programming.View
             {
                 OutputWeekdayLabel.Text = "Нет такого дня недели!";
             }
-        }
-
-        private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedIndexRectangle = RectangleListBox.SelectedIndex;
-            _currentRectangle = _rectangles[selectedIndexRectangle];
-            LenghtTextBox.Text = _currentRectangle.Length.ToString();
-            WidthTextBox.Text = _currentRectangle.Width.ToString();
-            ColorTextBox.Text = _currentRectangle.Color.ToString() ;
         }
 
         private void LenghtTextBox_TextChanged(object sender, EventArgs e)
@@ -276,17 +293,6 @@ namespace Programming.View
                 RatingTextBox.BackColor = ErrorColor;
                 return;
             }
-        }
-
-        private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedIndexMovie = MoviesListBox.SelectedIndex;
-            _currentMovie = _movies[selectedIndexMovie];
-            DurationTextBox.Text = _currentMovie.Duration.ToString();
-            ReleaseTextBox.Text = _currentMovie.Release.ToString();
-            RatingTextBox.Text = _currentMovie.Rating.ToString();
-            NameTextBox.Text = _currentMovie.Name.ToString();
-            GenreTextBox.Text = _currentMovie.Genre.ToString();
         }
 
         private void FindMovieButton_Click(object sender, EventArgs e)

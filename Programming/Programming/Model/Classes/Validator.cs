@@ -12,7 +12,7 @@ namespace Programming.Model.Classes
         {
              if (value < 0)
              {
-                throw new ArgumentException(message: $"Error in {propertyName}");
+                throw new ArgumentException(message: $"Error in {propertyName} - can't be negative");
              }
         }
             
@@ -20,7 +20,7 @@ namespace Programming.Model.Classes
         {
             if (value < 0)
             {
-                throw new ArgumentException(message: $"Error in {propertyName}");
+                throw new ArgumentException(message: $"Error in {propertyName} - can't be negative");
             }
         }
 
@@ -28,7 +28,7 @@ namespace Programming.Model.Classes
         {
             if (min > value | max < value)
             {
-                throw new ArgumentException(message: $"Error in {propertyName}");
+                throw new ArgumentException(message: $"Error in {propertyName} - not in range");
             }
         }
 
@@ -36,8 +36,8 @@ namespace Programming.Model.Classes
         {
             if (min > value | max < value)
             {
-                throw new ArgumentException(message: $"Error in {propertyName}");
+                throw new ArgumentException(message: $"Error in {propertyName} - not in range");
             }
-        }
+        }  
     }
 }

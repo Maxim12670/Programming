@@ -35,7 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(value, 0, 23, "Hours");
+                Validator.AssertValueInRange(value, 0, 23, nameof(Hours));
                 _hours = value;
             }
         }
@@ -48,7 +48,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(value, 0, 59, "Minutes");
+                Validator.AssertValueInRange(value, 0, 59, nameof(Minutes));
                 _minutes = value;
             }
         }
@@ -61,7 +61,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(value, 0, 59, "Seconds");
+                Validator.AssertValueInRange(value, 0, 59, nameof(Seconds));
                 _seconds = value;
             }
         }
