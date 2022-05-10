@@ -47,7 +47,7 @@ namespace Programming.View
             _random = new Random();
             _rectangles = new List<Rectangle>();
 
-            
+
             //MakeRectangle();
         }
 
@@ -116,6 +116,25 @@ namespace Programming.View
                 _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movies {i + 1}");
             }
+        }
+
+        private void ClearRectangleInfo()
+        {
+            RectangleListBox.Items.Clear();
+            IdSelectedTextBox.Clear();
+            XSelectedTextBox.Clear();
+            YSelectedTextBox.Clear();
+            WidthSelectedTextBox.Clear();
+            HeightSelectedTextBox.Clear();
+        }
+
+        private string FormattedText(Rectangle rectangle)
+        {
+            return $"{rectangle.Id}:" +
+                $"X= {rectangle.Center.X}" +
+                $"Y= {rectangle.Center.Y}" +
+                $"W= {rectangle.Width}" +
+                $"H= {rectangle.Lenght}";
         }
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -321,6 +340,61 @@ namespace Programming.View
                 $"Y= {_currentRectangle.Center.Y}" +
                 $"W= {_currentRectangle.Width}" +
                 $"H= {_currentRectangle.Lenght}");
+
+            //FormattedText(_currentRectangle);
+        }
+
+        private void AddButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24;
+        }
+
+        private void AddButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
+        }
+
+        private void DeleteButton_MouseEnter(object sender, EventArgs e)
+        {
+            DeleteButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24;
+        }
+
+        private void DeleteButton_MouseLeave(object sender, EventArgs e)
+        {
+            DeleteButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            int index = RectangleListBox.SelectedIndex;
+            if (index == -1) return;
+
+            _rectangles.RemoveAt(index);
+            ClearRectangleInfo();
+
+            foreach(var rectangle in _rectangles)
+            {
+                RectangleListBox.Items.Add(FormattedText(rectangle));
+                RectangleListBox.SelectedIndex = 0;
+            }
+
+            RectanglesListBox.Items.Add($"{_currentRectangle.Id}:" +
+                $"X= {_currentRectangle.Center.X}" +
+                $"Y= {_currentRectangle.Center.Y}" +
+                $"W= {_currentRectangle.Width}" +
+                $"H= {_currentRectangle.Lenght}");
+
+        }
+
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
+            IdSelectedTextBox.Text = _currentRectangle.Id.ToString();
+            XSelectedTextBox.Text = _currentRectangle.Center.X.ToString();
+            YSelectedTextBox.Text = _currentRectangle.Center.Y.ToString();
+            WidthSelectedTextBox.Text = _currentRectangle.Width.ToString();
+            HeightSelectedTextBox.Text = _currentRectangle.Lenght.ToString();
+
         }
     }
 }
