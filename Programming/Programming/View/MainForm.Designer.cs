@@ -93,7 +93,7 @@ namespace Programming.View
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.RectanglesLabel = new System.Windows.Forms.Label();
-            this.RectanglesListBox = new System.Windows.Forms.ListBox();
+            this.RectanglesSelectedListBox = new System.Windows.Forms.ListBox();
             this.ClassesTabControl.SuspendLayout();
             this.EnumerationsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -635,7 +635,7 @@ namespace Programming.View
             this.RectanglesTabPage.Controls.Add(this.DeleteButton);
             this.RectanglesTabPage.Controls.Add(this.AddButton);
             this.RectanglesTabPage.Controls.Add(this.RectanglesLabel);
-            this.RectanglesTabPage.Controls.Add(this.RectanglesListBox);
+            this.RectanglesTabPage.Controls.Add(this.RectanglesSelectedListBox);
             this.RectanglesTabPage.Location = new System.Drawing.Point(4, 25);
             this.RectanglesTabPage.Name = "RectanglesTabPage";
             this.RectanglesTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -658,6 +658,7 @@ namespace Programming.View
             this.HeightSelectedTextBox.Name = "HeightSelectedTextBox";
             this.HeightSelectedTextBox.Size = new System.Drawing.Size(100, 22);
             this.HeightSelectedTextBox.TabIndex = 14;
+            this.HeightSelectedTextBox.TextChanged += new System.EventHandler(this.HeightSelectedTextBox_TextChanged);
             // 
             // HeightSelectedLabel
             // 
@@ -674,6 +675,7 @@ namespace Programming.View
             this.WidthSelectedTextBox.Name = "WidthSelectedTextBox";
             this.WidthSelectedTextBox.Size = new System.Drawing.Size(100, 22);
             this.WidthSelectedTextBox.TabIndex = 12;
+            this.WidthSelectedTextBox.TextChanged += new System.EventHandler(this.WidthSelectedTextBox_TextChanged);
             // 
             // WidthSelectedLabel
             // 
@@ -690,6 +692,7 @@ namespace Programming.View
             this.YSelectedTextBox.Name = "YSelectedTextBox";
             this.YSelectedTextBox.Size = new System.Drawing.Size(100, 22);
             this.YSelectedTextBox.TabIndex = 10;
+            this.YSelectedTextBox.TextChanged += new System.EventHandler(this.YSelectedTextBox_TextChanged);
             // 
             // YSelectedLabel
             // 
@@ -706,6 +709,7 @@ namespace Programming.View
             this.XSelectedTextBox.Name = "XSelectedTextBox";
             this.XSelectedTextBox.Size = new System.Drawing.Size(100, 22);
             this.XSelectedTextBox.TabIndex = 8;
+            this.XSelectedTextBox.TextChanged += new System.EventHandler(this.XSelectedTextBox_TextChanged);
             // 
             // XSelectedLabel
             // 
@@ -720,6 +724,7 @@ namespace Programming.View
             // 
             this.IdSelectedTextBox.Location = new System.Drawing.Point(83, 391);
             this.IdSelectedTextBox.Name = "IdSelectedTextBox";
+            this.IdSelectedTextBox.ReadOnly = true;
             this.IdSelectedTextBox.Size = new System.Drawing.Size(100, 22);
             this.IdSelectedTextBox.TabIndex = 6;
             // 
@@ -775,15 +780,15 @@ namespace Programming.View
             this.RectanglesLabel.TabIndex = 1;
             this.RectanglesLabel.Text = "Rectangles:";
             // 
-            // RectanglesListBox
+            // RectanglesSelectedListBox
             // 
-            this.RectanglesListBox.FormattingEnabled = true;
-            this.RectanglesListBox.ItemHeight = 16;
-            this.RectanglesListBox.Location = new System.Drawing.Point(16, 31);
-            this.RectanglesListBox.Name = "RectanglesListBox";
-            this.RectanglesListBox.Size = new System.Drawing.Size(415, 260);
-            this.RectanglesListBox.TabIndex = 0;
-            this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
+            this.RectanglesSelectedListBox.FormattingEnabled = true;
+            this.RectanglesSelectedListBox.ItemHeight = 16;
+            this.RectanglesSelectedListBox.Location = new System.Drawing.Point(16, 31);
+            this.RectanglesSelectedListBox.Name = "RectanglesSelectedListBox";
+            this.RectanglesSelectedListBox.Size = new System.Drawing.Size(415, 260);
+            this.RectanglesSelectedListBox.TabIndex = 0;
+            this.RectanglesSelectedListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -865,7 +870,7 @@ namespace Programming.View
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.TabPage RectanglesTabPage;
-        private System.Windows.Forms.ListBox RectanglesListBox;
+        private System.Windows.Forms.ListBox RectanglesSelectedListBox;
         private System.Windows.Forms.Label RectanglesLabel;
         private System.Windows.Forms.Label SelectedLabel;
         private System.Windows.Forms.Button DeleteButton;

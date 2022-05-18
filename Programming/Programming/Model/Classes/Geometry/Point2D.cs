@@ -8,9 +8,9 @@ namespace Programming.Model.Classes
 {
     public class Point2D
     {
-        private double _x;
+        private int _x;
 
-        private double _y;
+        private int _y;
 
         public Point2D(int x,
                        int y)
@@ -19,29 +19,29 @@ namespace Programming.Model.Classes
             Y = y;
         }
 
-        public double X
+        public int X
         {
             get
             {
                 return _x;
             }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value, nameof(X));
                 _x = value;
             }
         }
 
-        public double Y
+        public int Y
         {
             get
             {
-                return _x;
+                return _y;
             }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value, nameof(Y));
-                _x = value;
+                _y = value;
             }
         }
     }
