@@ -748,7 +748,6 @@ namespace Programming.View
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
             this.DeleteButton.Location = new System.Drawing.Point(108, 310);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 37);
@@ -757,11 +756,11 @@ namespace Programming.View
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             this.DeleteButton.MouseEnter += new System.EventHandler(this.DeleteButton_MouseEnter);
             this.DeleteButton.MouseLeave += new System.EventHandler(this.DeleteButton_MouseLeave);
+            
             // 
             // AddButton
             // 
             this.AddButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AddButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
             this.AddButton.Location = new System.Drawing.Point(16, 310);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 37);
@@ -770,6 +769,7 @@ namespace Programming.View
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
             this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
+            
             // 
             // RectanglesLabel
             // 
