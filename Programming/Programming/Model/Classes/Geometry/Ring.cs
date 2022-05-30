@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о кольце.
+    /// </summary>
     public class Ring
     {
+        /// <summary>
+        /// Внешний радиус кольца.
+        /// </summary>
         private double _outerRadius;
 
+        /// <summary>
+        /// Внутренний радиус окружности.
+        /// </summary>
         private double _innerRadius;
 
-        public Ring()
-        {
-        }
-
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Ring"/>.
+        /// </summary>
+        /// <param name="outerRadius">Внешний радиус. Должен быть положительным числом.
+        /// Должен быть больше внутреннего радиуса.</param>
+        /// <param name="innerRadius">Внутренний радиус. Должен быть положительным числом.
+        /// Должен быть меньше внешнего радиуса.</param>
+        /// <param name="center">Координаты центра.</param>
         public Ring(double outerRadius,
                     double innerRadius,
                     Point2D center)
@@ -25,8 +38,15 @@ namespace Programming.Model.Classes
             Center = center;
         }
 
+        /// <summary>
+        /// Возвращает и задает координаты центра кольца.
+        /// </summary>
         public Point2D Center { get; set; }
 
+        /// <summary>
+        /// Возвращает и задаёт внешний радиус. Должен быть положительным числом.
+        /// Должен быть больше внутреннего радиуса.
+        /// </summary>
         public double OuterRadius
         {
             get
@@ -41,6 +61,10 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт внутренний радиус. Должен быть положительным числом.
+        /// Должен быть меньше внешнего радиуса.
+        /// </summary>
         public double InnerRadius
         {
             get
@@ -55,6 +79,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает площадь кольца.
+        /// </summary>
         public double Area
         {
             get

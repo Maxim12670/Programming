@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Реализует статическую обработку данных о двух прямоугольниках.
+    /// </summary>
     public static class CollisionManager
     {
+        /// <summary>
+        /// Проверяет, пересекаются ли два прямоугольника.
+        /// </summary>
+        /// <param name="rectangle1"></param>
+        /// <param name="rectangle2"></param>
+        /// <returns>Возвращает true, если все условия пересечения выполнены,
+        /// и false, если нет.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             return rectangle1.Center.X < rectangle2.Center.X + rectangle2.Width &&
@@ -16,6 +26,12 @@ namespace Programming.Model.Classes
                 rectangle1.Length + rectangle1.Center.Y > rectangle2.Center.Y;
         }
 
+        /// <summary>
+        /// Проверяет, пересекаются ли два кольца.
+        /// </summary>
+        /// <param name="ring1"></param>
+        /// <param name="ring2"></param>
+        /// <returns>Возвращает true, если условие пересечения выполнено, и false, если нет.</returns>
         public static bool IsCollision(Ring ring1, Ring ring2)
         {
             int dX = Math.Abs(ring1.Center.X - ring2.Center.X);
