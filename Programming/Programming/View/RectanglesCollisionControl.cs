@@ -168,23 +168,6 @@ namespace Programming.View.Panels
             }
         }
 
-        private void EditRectanglePanels(Rectangle rectangle)
-        {
-            var rectanglePanel = new Panel
-            {
-                Location = new Point(rectangle.Center.X, rectangle.Center.Y),
-                Height = rectangle.Length,
-                Width = rectangle.Width,
-                BackColor = _normalColorPanel
-            };
-
-            int index = RectanglesSelectedListBox.SelectedIndex;
-            RectanglesPanel.Controls.Add(rectanglePanel);
-            RectanglesPanel.Controls.Remove(_rectanglePanels[index]);
-            _rectanglePanels[index] = rectanglePanel;
-            FindCollisions();
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             var rectangle = AddRectangles();
@@ -234,18 +217,19 @@ namespace Programming.View.Panels
             {
                 string currentXRectangles = XSelectedTextBox.Text;
                 int XRectangleValue = int.Parse(currentXRectangles);
-                _rectanglePanels[RectanglesSelectedListBox.SelectedIndex].Location =
+                _currentRectangle.Center.X = XRectangleValue;
+                RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X,
                     _currentRectangle.Center.Y);
-                XSelectedTextBox.BackColor = _normalColor;
                 UpdateRectangleInfo(_currentRectangle);
-                EditRectanglePanels(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
                 XSelectedTextBox.BackColor = _errorColor;
                 return;
             }
+            XSelectedTextBox.BackColor = _normalColor;
         }
 
         private void YSelectedTextBox_TextChanged(object sender, EventArgs e)
@@ -254,19 +238,20 @@ namespace Programming.View.Panels
             try
             {
                 string currentYRectangles = YSelectedTextBox.Text;
-                int yRectangleValue = int.Parse(currentYRectangles);
-                _rectanglePanels[RectanglesSelectedListBox.SelectedIndex].Location =
+                int YRectangleValue = int.Parse(currentYRectangles);
+                _currentRectangle.Center.Y = YRectangleValue;
+                RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X,
                     _currentRectangle.Center.Y);
-                YSelectedTextBox.BackColor = _normalColor;
                 UpdateRectangleInfo(_currentRectangle);
-                EditRectanglePanels(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
                 YSelectedTextBox.BackColor = _errorColor;
                 return;
             }
+            YSelectedTextBox.BackColor = _normalColor;
         }
 
         private void WidthSelectedTextBox_TextChanged(object sender, EventArgs e)
@@ -277,15 +262,16 @@ namespace Programming.View.Panels
                 string currentWidthRectangle = WidthSelectedTextBox.Text;
                 int widthRectangleValue = int.Parse(currentWidthRectangle);
                 _currentRectangle.Width = widthRectangleValue;
-                WidthSelectedTextBox.BackColor = _normalColor;
+                RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Width = widthRectangleValue;
                 UpdateRectangleInfo(_currentRectangle);
-                EditRectanglePanels(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
                 WidthSelectedTextBox.BackColor = _errorColor;
                 return;
             }
+            WidthSelectedTextBox.BackColor = _normalColor;
         }
 
         private void HeightSelectedTextBox_TextChanged(object sender, EventArgs e)
@@ -296,15 +282,16 @@ namespace Programming.View.Panels
                 string currentHeightRectangle = HeightSelectedTextBox.Text;
                 int heightRectangleValue = int.Parse(currentHeightRectangle);
                 _currentRectangle.Length = heightRectangleValue;
-                HeightSelectedTextBox.BackColor = _normalColor;
+                RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Height = heightRectangleValue;
                 UpdateRectangleInfo(_currentRectangle);
-                EditRectanglePanels(_currentRectangle);
+                FindCollisions();
             }
             catch
             {
                 HeightSelectedTextBox.BackColor = _errorColor;
                 return;
             }
+            HeightSelectedTextBox.BackColor = _normalColor;
         }
 
         private void AddButton_MouseEnter(object sender, EventArgs e)
