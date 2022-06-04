@@ -216,8 +216,8 @@ namespace Programming.View.Panels
             try
             {
                 string currentXRectangles = XSelectedTextBox.Text;
-                int XRectangleValue = int.Parse(currentXRectangles);
-                _currentRectangle.Center.X = XRectangleValue;
+                int xRectangleValue = int.Parse(currentXRectangles);
+                _currentRectangle.Center.X = xRectangleValue;
                 RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X,
                     _currentRectangle.Center.Y);
@@ -238,8 +238,8 @@ namespace Programming.View.Panels
             try
             {
                 string currentYRectangles = YSelectedTextBox.Text;
-                int YRectangleValue = int.Parse(currentYRectangles);
-                _currentRectangle.Center.Y = YRectangleValue;
+                int yRectangleValue = int.Parse(currentYRectangles);
+                _currentRectangle.Center.Y = yRectangleValue;
                 RectanglesPanel.Controls[RectanglesSelectedListBox.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X,
                     _currentRectangle.Center.Y);

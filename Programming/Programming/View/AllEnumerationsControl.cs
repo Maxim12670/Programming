@@ -19,7 +19,7 @@ namespace Programming.View
     public partial class AllEnumerationsControl : UserControl
     {
         /// <summary>
-        /// Создает экземпляр класса <see cref="AllEnumerationsControl"/y>.
+        /// Создает экземпляр класса <see cref="AllEnumerationsControl"/>.
         /// </summary>
         public AllEnumerationsControl()
         {

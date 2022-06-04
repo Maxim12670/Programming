@@ -40,7 +40,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// роверяет, что число находится в определённом диапазоне.
+        /// Проверяет, что число находится в определённом диапазоне.
         /// </summary>
         /// <param name="value">Число.</param>
         /// <param name="min">Левая граница диапазона.</param>
@@ -56,7 +56,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// роверяет, что число находится в определённом диапазоне.
+        /// Проверяет, что число находится в определённом диапазоне.
         /// </summary>
         /// <param name="value">Число.</param>
         /// <param name="min">Левая граница диапазона.</param>
