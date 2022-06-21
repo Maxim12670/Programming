@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProductList.Model.Enums
 {
-    public enum Meat
+    public enum ProductCategories
     {
-        Pork,
-        Beef,
-        Chicken,
-        Turkey
+        Null,
+        Bake,
+        Meat,
+        Nuts,
+        Seafood,
+        Vegatables
     }
 }

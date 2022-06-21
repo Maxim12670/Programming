@@ -52,11 +52,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Enums\Bake.cs" />
-    <Compile Include="Model\Enums\Meat.cs" />
-    <Compile Include="Model\Enums\Nuts.cs" />
-    <Compile Include="Model\Enums\Seafood.cs" />
-    <Compile Include="Model\Enums\Vegetables.cs" />
+    <Compile Include="Model\Classes\Product.cs" />
+    <Compile Include="Model\Classes\Validator.cs" />
+    <Compile Include="Model\Enums\ProductCategories.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
