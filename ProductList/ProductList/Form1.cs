@@ -21,12 +21,13 @@ namespace ProductList
 
         private Product _product;
 
-        private List<Product> _allProduct = new List<Product>();
+        private List<Product> _allProduct ;
 
         public ProductListForm()
         {
             InitializeComponent();
             _product = new Product();
+            _allProduct = new List<Product>();
             NameTextBox.Text = "";
             ManufacturerTextBox.Text = "";
             QuantityTextBox.Text = "";
@@ -41,13 +42,46 @@ namespace ProductList
 
         //private void CheckTextBox()
         //{
+            //    string name = NameTextBox.Text;
+            //    string manufacturer = ManufacturerTextBox.Text;
+            //    string quantity = (QuantityTextBox.Text).ToString();
+            //    Color colorName = NameTextBox.BackColor;
+            //    Color colorManufacturer = ManufacturerTextBox.BackColor;
+            //    Color colorQuantity = QuantityTextBox.BackColor;
+            //    if(name.Length == 0 ||
+            //       manufacturer.Length == 0 ||
+            //       quantity == null)
+            //    {
+            //        DialogResult result = MessageBox.Show(
+            //                                        "Check fields!",
+            //                                        "Message",
+            //                                         MessageBoxButtons.OK,
+            //                                         MessageBoxIcon.Warning);
+            //    }
+            //    else if( colorName == _errorColor ||
+            //            colorManufacturer == _errorColor ||
+            //            colorQuantity == _errorColor)
+            //    {
+            //        DialogResult result = MessageBox.Show(
+            //                                        "Check fields!",
+            //                                        "Message",
+            //                                        MessageBoxButtons.OK,
+            //                                        MessageBoxIcon.Warning);
+            //    }
+            //    else
+            //    {
+            //        var product = AddProduct();
+            //    }
+
+
         //    string name = NameTextBox.Text;
         //    string manufacturer = ManufacturerTextBox.Text;
         //    string quantity = (QuantityTextBox.Text).ToString();
         //    Color colorName = NameTextBox.BackColor;
         //    Color colorManufacturer = ManufacturerTextBox.BackColor;
         //    Color colorQuantity = QuantityTextBox.BackColor;
-        //    if(name.Length == 0 ||
+
+        //    if (name.Length == 0 ||
         //       manufacturer.Length == 0 ||
         //       quantity == null)
         //    {
@@ -57,7 +91,7 @@ namespace ProductList
         //                                         MessageBoxButtons.OK,
         //                                         MessageBoxIcon.Warning);
         //    }
-        //    else if( colorName == _errorColor ||
+        //    else if (colorName == _errorColor ||
         //            colorManufacturer == _errorColor ||
         //            colorQuantity == _errorColor)
         //    {
@@ -67,12 +101,7 @@ namespace ProductList
         //                                        MessageBoxButtons.OK,
         //                                        MessageBoxIcon.Warning);
         //    }
-        //    else
-        //    {
-        //        var product = AddProduct();
-        //    }
-    
-            
+
         //}
 
  
@@ -91,7 +120,6 @@ namespace ProductList
             //ProductListBox.Items.Add(_product.Name);
             //return _product;
             _product = new Product();
-            _allProduct = new List<Product>();
             _product.Name = NameTextBox.Text;
             _product.Manufacturer = ManufacturerTextBox.Text;
             _product.Quantity = int.Parse(QuantityTextBox.Text);
@@ -124,6 +152,7 @@ namespace ProductList
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Warning);
             }
+
             
 
             _allProduct.Add(_product);
