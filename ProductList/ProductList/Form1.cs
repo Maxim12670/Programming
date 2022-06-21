@@ -19,9 +19,7 @@ namespace ProductList
 
         private readonly Color _errorColor = Color.Red;
 
-        private Product _currentProduct;
-
-        private Product _product;
+        private Product _product = new Product();
 
         private List<Product> _allProduct = new List<Product>();
 
@@ -60,8 +58,8 @@ namespace ProductList
                                                  MessageBoxIcon.Warning);
             }
             else if( colorName == _errorColor ||
-                colorManufacturer == _errorColor ||
-                colorQuantity == _errorColor)
+                    colorManufacturer == _errorColor ||
+                    colorQuantity == _errorColor)
             {
                 DialogResult result = MessageBox.Show(
                                                 "Check fields!",
@@ -90,6 +88,7 @@ namespace ProductList
         private Product AddProduct()
         {
             _product = new Product();
+            
             _product.Name = NameTextBox.Text;
             _product.Manufacturer = ManufacturerTextBox.Text;
             _product.Quantity = int.Parse(QuantityTextBox.Text);
@@ -132,8 +131,7 @@ namespace ProductList
 
         private void ProductListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //ProductListBox.SelectedIndex = ProductListBox.Items.Count - 1;
-            //ClearInfoText();
+
             int index = ProductListBox.SelectedIndex;
             _product = _allProduct[index];
             NameTextBox.Text = _product.Name.ToString();
