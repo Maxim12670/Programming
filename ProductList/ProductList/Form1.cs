@@ -19,7 +19,7 @@ namespace ProductList
 
         private readonly Color _errorColor = Color.Red;
 
-        private Product _product = new Product();
+        private Product _product;
 
         private List<Product> _allProduct = new List<Product>();
 
@@ -39,15 +39,72 @@ namespace ProductList
             CategoryComboBox.SelectedIndex = 0;
         }
 
-        private void CheckTextBox()
+        //private void CheckTextBox()
+        //{
+        //    string name = NameTextBox.Text;
+        //    string manufacturer = ManufacturerTextBox.Text;
+        //    string quantity = (QuantityTextBox.Text).ToString();
+        //    Color colorName = NameTextBox.BackColor;
+        //    Color colorManufacturer = ManufacturerTextBox.BackColor;
+        //    Color colorQuantity = QuantityTextBox.BackColor;
+        //    if(name.Length == 0 ||
+        //       manufacturer.Length == 0 ||
+        //       quantity == null)
+        //    {
+        //        DialogResult result = MessageBox.Show(
+        //                                        "Check fields!",
+        //                                        "Message",
+        //                                         MessageBoxButtons.OK,
+        //                                         MessageBoxIcon.Warning);
+        //    }
+        //    else if( colorName == _errorColor ||
+        //            colorManufacturer == _errorColor ||
+        //            colorQuantity == _errorColor)
+        //    {
+        //        DialogResult result = MessageBox.Show(
+        //                                        "Check fields!",
+        //                                        "Message",
+        //                                        MessageBoxButtons.OK,
+        //                                        MessageBoxIcon.Warning);
+        //    }
+        //    else
+        //    {
+        //        var product = AddProduct();
+        //    }
+    
+            
+        //}
+
+ 
+
+        private Product AddProduct()
         {
+            //_product = new Product();
+
+            //_product.Name = NameTextBox.Text;
+            //_product.Manufacturer = ManufacturerTextBox.Text;
+            //_product.Quantity = int.Parse(QuantityTextBox.Text);
+            //_product.Category = CategoryComboBox.Text;
+
+            //_allProduct.Add(_product);
+
+            //ProductListBox.Items.Add(_product.Name);
+            //return _product;
+            _product = new Product();
+            _allProduct = new List<Product>();
+            _product.Name = NameTextBox.Text;
+            _product.Manufacturer = ManufacturerTextBox.Text;
+            _product.Quantity = int.Parse(QuantityTextBox.Text);
+            _product.Category = CategoryComboBox.Text;
+
             string name = NameTextBox.Text;
             string manufacturer = ManufacturerTextBox.Text;
             string quantity = (QuantityTextBox.Text).ToString();
             Color colorName = NameTextBox.BackColor;
             Color colorManufacturer = ManufacturerTextBox.BackColor;
             Color colorQuantity = QuantityTextBox.BackColor;
-            if(name.Length == 0 ||
+
+            if (name.Length == 0 ||
                manufacturer.Length == 0 ||
                quantity == null)
             {
@@ -57,7 +114,7 @@ namespace ProductList
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Warning);
             }
-            else if( colorName == _errorColor ||
+            else if (colorName == _errorColor ||
                     colorManufacturer == _errorColor ||
                     colorQuantity == _errorColor)
             {
@@ -67,10 +124,16 @@ namespace ProductList
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Warning);
             }
-            else
-            {
-                var product = AddProduct();
-            }
+            
+
+            _allProduct.Add(_product);
+
+            ProductListBox.Items.Add(_product.Name);
+
+            return _product;
+            
+
+
         }
 
         private void ClearInfoText()
@@ -82,30 +145,14 @@ namespace ProductList
             QuantityTextBox.Clear();
             QuantityTextBox.BackColor = _correctColor;
             CategoryComboBox.SelectedIndex = 0;
-            
-        }
 
-        private Product AddProduct()
-        {
-            _product = new Product();
-            
-            _product.Name = NameTextBox.Text;
-            _product.Manufacturer = ManufacturerTextBox.Text;
-            _product.Quantity = int.Parse(QuantityTextBox.Text);
-            _product.Category = CategoryComboBox.Text;
-
-            _allProduct.Add(_product);
-
-            ProductListBox.Items.Add(_product.Name);
-
-            return _product;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            CheckTextBox();
-
-            ProductListBox.SelectedIndex = ProductListBox.Items.Count - 1;
+            //CheckTextBox();
+            var product = AddProduct();
+            //ProductListBox.SelectedIndex = ProductListBox.Items.Count - 1;
 
             ClearInfoText();
         }
