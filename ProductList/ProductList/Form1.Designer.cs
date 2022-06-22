@@ -107,6 +107,7 @@ namespace ProductList
             this.NameTextBox.Size = new System.Drawing.Size(352, 30);
             this.NameTextBox.TabIndex = 7;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
+        
             // 
             // CategoryComboBox
             // 

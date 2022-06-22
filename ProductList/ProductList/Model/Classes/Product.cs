@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProductList.Model.Enums;
 
 namespace ProductList.Model.Classes
 {
@@ -14,8 +15,6 @@ namespace ProductList.Model.Classes
 
         private int _quantity;
 
-        private string _category;
-
         public Product()
         {
         }
@@ -23,7 +22,7 @@ namespace ProductList.Model.Classes
         public Product(string name,
                         string manufacturer,
                         int quantity,
-                        string category)
+                        ProductCategories category)
         {
             Name = name;
             Manufacturer = manufacturer;
@@ -31,7 +30,7 @@ namespace ProductList.Model.Classes
             Category = category;
         }
 
-        public string Category { get; set; }
+        public ProductCategories Category { get; set; }
 
         public string Name
         {
