@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProductList.Model.Enums
 {
+    /// <summary>
+    /// Хранит перечисление категорий продуктов.
+    /// </summary>
     public enum ProductCategories
     {
         Null,

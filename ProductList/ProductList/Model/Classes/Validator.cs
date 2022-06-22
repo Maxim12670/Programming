@@ -7,8 +7,17 @@ using System.Text.RegularExpressions;
 
 namespace ProductList.Model.Classes
 {
+    /// <summary>
+    /// Предоставляет методы для проверки входных данных.
+    /// </summary>
     public static class Validator
     {
+        /// <summary>
+        /// Проверяет, что число является положительным.
+        /// </summary>
+        /// <param name="value">Число.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда число меньше нуля.</exception>
         public static void AssertOnPositiveValue(int value, string propertyName)
         {
             if(value < 0)
@@ -17,6 +26,12 @@ namespace ProductList.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Проверяет, состоит ли строка только из букв английского алфавита.
+        /// </summary>
+        /// <param name="value">Строка.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда в строке появляются недопустимые символы.</exception>
         public static void CheckString(string value, string propertyName)
         {
             Regex regex = new Regex(@"^[A-Za-z]*[A-Za-z]$");
@@ -26,6 +41,5 @@ namespace ProductList.Model.Classes
                 throw new ArgumentException(message: $"Error in {propertyName}!");
             }
         }
-
     }
 }

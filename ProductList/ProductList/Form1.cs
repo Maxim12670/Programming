@@ -15,14 +15,29 @@ namespace ProductList
 {
     public partial class ProductListForm : Form
     {
+        /// <summary>
+        /// Цвет корректного значения.
+        /// </summary>
         private readonly Color _correctColor = Color.White;
 
+        /// <summary>
+        /// Цвет некорректного значения.
+        /// </summary>
         private readonly Color _errorColor = Color.Red;
 
+        /// <summary>
+        /// Выбранный элемент.
+        /// </summary>
         private Product _product;
 
+        /// <summary>
+        /// Коллекция элементов.
+        /// </summary>
         private List<Product> _allProduct ;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="ProductListForm"/>. 
+        /// </summary>
         public ProductListForm()
         {
             InitializeComponent();
@@ -36,6 +51,9 @@ namespace ProductList
             CategoryComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Добавялет новый элемент.
+        /// </summary>
         private void AddProduct()
         {
             _product = new Product();
@@ -53,6 +71,10 @@ namespace ProductList
             ProductListBox.Items.Add(_product.Name);
         }
 
+        /// <summary>
+        /// Обновляет информацию.
+        /// </summary>
+        /// <param name="product"></param>
         private void UpdateProductInfo(Product product)
         {
             NameTextBox.Text = product.Name;
@@ -61,13 +83,18 @@ namespace ProductList
             CategoryComboBox.Text = product.Category.ToString();           
         }
 
+        /// <summary>
+        /// Обновляет информацию.
+        /// </summary>
         private void UpdateListBoxInfo()
         {
             int index = ProductListBox.SelectedIndex;
             ProductListBox.Items[index] = _product.Name;           
         }
 
-
+        /// <summary>
+        /// Очищает текстовые поля.
+        /// </summary>
         private void ClearInfoText()
         {
             NameTextBox.Clear();
@@ -77,9 +104,11 @@ namespace ProductList
             QuantityTextBox.Clear();
             QuantityTextBox.BackColor = _correctColor;
             CategoryComboBox.SelectedIndex = 0;
-
         }
 
+        /// <summary>
+        /// Сортирует по имени.
+        /// </summary>
         private void SortNameProduct()
         {
             _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
