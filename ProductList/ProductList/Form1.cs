@@ -43,32 +43,30 @@ namespace ProductList
             _product.Manufacturer = "Manufacturer";
             _product.Quantity = 100;
             _product.Category = (ProductCategories) CategoryComboBox.SelectedItem;
-
             string name = NameTextBox.Text; 
             string manufacturer = ManufacturerTextBox.Text;
             string quantity = QuantityTextBox.Text;
             Color colorName = NameTextBox.BackColor;
             Color colorManufacturer = ManufacturerTextBox.BackColor;
             Color colorQuantity = QuantityTextBox.BackColor;
-
             _allProduct.Add(_product);
-
-            _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
-            foreach(var product in _allProduct)
-            {
-                ProductListBox.Items.Add(_product.Name);
-            }
-            ProductListBox.SelectedIndex = _allProduct.Count-1;
+            ProductListBox.Items.Add(_product.Name);
         }
 
-        private void UpdateInfo(Product product)
+        private void UpdateProductInfo(Product product)
         {
             NameTextBox.Text = product.Name;
             ManufacturerTextBox.Text = product.Manufacturer;
             QuantityTextBox.Text = product.Quantity.ToString();
-            CategoryComboBox.Text = product.Category.ToString();
-           
+            CategoryComboBox.Text = product.Category.ToString();           
         }
+
+        private void UpdateListBoxInfo()
+        {
+            int index = ProductListBox.SelectedIndex;
+            ProductListBox.Items[index] = _product.Name;           
+        }
+
 
         private void ClearInfoText()
         {
@@ -82,11 +80,22 @@ namespace ProductList
 
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private void SortNameProduct()
         {
-            
+            _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
+            ProductListBox.Items.Clear();
+            foreach (var product in _allProduct)
+            {
+                ProductListBox.Items.Add(product.Name);
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {         
             AddProduct();
-            ProductListBox.SelectedIndex = _allProduct.Count - 1;
+            _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
+            SortNameProduct();
+            ProductListBox.SelectedIndex = _allProduct.Count-1;
 
         }
 
@@ -100,36 +109,30 @@ namespace ProductList
 
                 foreach (var product in _allProduct)
                     ProductListBox.Items.Add(product.Name);
-
+                ProductListBox.SelectedIndex = _allProduct.Count - 1;
                 ClearInfoText();
-
+                SortNameProduct();
             }
         }
 
         private void ProductListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ProductListBox.SelectedItems == null) return;
-
+            if (ProductListBox.SelectedIndex == -1) return;
             int index = ProductListBox.SelectedIndex;
             _product = _allProduct[index];
             NameTextBox.Text = _product.Name;
             ManufacturerTextBox.Text = _product.Manufacturer;
             QuantityTextBox.Text = _product.Quantity.ToString();
             CategoryComboBox.Text = _product.Category.ToString();
-            UpdateInfo(_product);
-
+            UpdateProductInfo(_product);
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                
                 _product.Name = NameTextBox.Text;
-
-                
-                UpdateInfo(_product);
-
+                UpdateListBoxInfo();  
             }
             catch
             {
@@ -153,7 +156,6 @@ namespace ProductList
             }
             ManufacturerTextBox.BackColor = _correctColor;
         }
-
 
         private void QuantityTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -190,7 +192,5 @@ namespace ProductList
         {
             DeleteButton.Image = global::ProductList.Properties.Resources.iconDelete;
         }
-
-
     }
 }
