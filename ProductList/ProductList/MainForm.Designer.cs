@@ -50,11 +50,11 @@ namespace ProductList
             // 
             this.ProductListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ProductListBox.FormattingEnabled = true;
-            this.ProductListBox.ItemHeight = 20;
-            this.ProductListBox.Location = new System.Drawing.Point(12, 37);
-            this.ProductListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProductListBox.ItemHeight = 17;
+            this.ProductListBox.Location = new System.Drawing.Point(11, 30);
+            this.ProductListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProductListBox.Name = "ProductListBox";
-            this.ProductListBox.Size = new System.Drawing.Size(255, 284);
+            this.ProductListBox.Size = new System.Drawing.Size(218, 225);
             this.ProductListBox.TabIndex = 0;
             this.ProductListBox.SelectedIndexChanged += new System.EventHandler(this.ProductListBox_SelectedIndexChanged);
             // 
@@ -62,12 +62,12 @@ namespace ProductList
             // 
             this.ProductLabel.AutoSize = true;
             this.ProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductLabel.Location = new System.Drawing.Point(8, 9);
+            this.ProductLabel.Location = new System.Drawing.Point(7, 8);
+            this.ProductLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductLabel.Name = "ProductLabel";
-            this.ProductLabel.Size = new System.Drawing.Size(93, 25);
+            this.ProductLabel.Size = new System.Drawing.Size(76, 20);
             this.ProductLabel.TabIndex = 1;
             this.ProductLabel.Text = "Product:";
-
             // 
             // SelectedProductGroupBox
             // 
@@ -80,34 +80,32 @@ namespace ProductList
             this.SelectedProductGroupBox.Controls.Add(this.CategoryLabel);
             this.SelectedProductGroupBox.Controls.Add(this.ManufacturerLabel);
             this.SelectedProductGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectedProductGroupBox.Location = new System.Drawing.Point(272, 37);
-            this.SelectedProductGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SelectedProductGroupBox.Location = new System.Drawing.Point(233, 30);
+            this.SelectedProductGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SelectedProductGroupBox.Name = "SelectedProductGroupBox";
-            this.SelectedProductGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SelectedProductGroupBox.Size = new System.Drawing.Size(516, 284);
+            this.SelectedProductGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SelectedProductGroupBox.Size = new System.Drawing.Size(358, 225);
             this.SelectedProductGroupBox.TabIndex = 2;
             this.SelectedProductGroupBox.TabStop = false;
             this.SelectedProductGroupBox.Text = "Selected Product";
-
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.NameLabel.Location = new System.Drawing.Point(67, 47);
-            this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NameLabel.Location = new System.Drawing.Point(50, 38);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(58, 20);
+            this.NameLabel.Size = new System.Drawing.Size(49, 17);
             this.NameLabel.TabIndex = 9;
             this.NameLabel.Text = "Name:";
             // 
             // NameTextBox
             // 
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameTextBox.Location = new System.Drawing.Point(156, 39);
-            this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NameTextBox.Location = new System.Drawing.Point(117, 32);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(352, 30);
+            this.NameTextBox.Size = new System.Drawing.Size(237, 26);
             this.NameTextBox.TabIndex = 7;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
@@ -116,29 +114,29 @@ namespace ProductList
             this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(156, 143);
-            this.CategoryComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CategoryComboBox.Location = new System.Drawing.Point(117, 116);
+            this.CategoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(352, 33);
+            this.CategoryComboBox.Size = new System.Drawing.Size(237, 28);
             this.CategoryComboBox.TabIndex = 6;
             // 
             // QuantityTextBox
             // 
             this.QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.QuantityTextBox.Location = new System.Drawing.Point(156, 106);
-            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuantityTextBox.Location = new System.Drawing.Point(117, 86);
+            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QuantityTextBox.Name = "QuantityTextBox";
-            this.QuantityTextBox.Size = new System.Drawing.Size(352, 30);
+            this.QuantityTextBox.Size = new System.Drawing.Size(237, 26);
             this.QuantityTextBox.TabIndex = 5;
             this.QuantityTextBox.TextChanged += new System.EventHandler(this.QuantityTextBox_TextChanged);
             // 
             // ManufacturerTextBox
             // 
             this.ManufacturerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ManufacturerTextBox.Location = new System.Drawing.Point(156, 73);
-            this.ManufacturerTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ManufacturerTextBox.Location = new System.Drawing.Point(117, 59);
+            this.ManufacturerTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ManufacturerTextBox.Name = "ManufacturerTextBox";
-            this.ManufacturerTextBox.Size = new System.Drawing.Size(352, 30);
+            this.ManufacturerTextBox.Size = new System.Drawing.Size(237, 26);
             this.ManufacturerTextBox.TabIndex = 3;
             this.ManufacturerTextBox.TextChanged += new System.EventHandler(this.ManufacturerTextBox_TextChanged);
             // 
@@ -146,9 +144,10 @@ namespace ProductList
             // 
             this.QuantityLabel.AutoSize = true;
             this.QuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.QuantityLabel.Location = new System.Drawing.Point(49, 113);
+            this.QuantityLabel.Location = new System.Drawing.Point(37, 92);
+            this.QuantityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.QuantityLabel.Name = "QuantityLabel";
-            this.QuantityLabel.Size = new System.Drawing.Size(76, 20);
+            this.QuantityLabel.Size = new System.Drawing.Size(65, 17);
             this.QuantityLabel.TabIndex = 2;
             this.QuantityLabel.Text = "Quantity:";
             // 
@@ -156,9 +155,10 @@ namespace ProductList
             // 
             this.CategoryLabel.AutoSize = true;
             this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CategoryLabel.Location = new System.Drawing.Point(44, 150);
+            this.CategoryLabel.Location = new System.Drawing.Point(33, 122);
+            this.CategoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(81, 20);
+            this.CategoryLabel.Size = new System.Drawing.Size(69, 17);
             this.CategoryLabel.TabIndex = 1;
             this.CategoryLabel.Text = "Category:";
             // 
@@ -166,9 +166,10 @@ namespace ProductList
             // 
             this.ManufacturerLabel.AutoSize = true;
             this.ManufacturerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ManufacturerLabel.Location = new System.Drawing.Point(12, 80);
+            this.ManufacturerLabel.Location = new System.Drawing.Point(9, 65);
+            this.ManufacturerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ManufacturerLabel.Name = "ManufacturerLabel";
-            this.ManufacturerLabel.Size = new System.Drawing.Size(113, 20);
+            this.ManufacturerLabel.Size = new System.Drawing.Size(96, 17);
             this.ManufacturerLabel.TabIndex = 0;
             this.ManufacturerLabel.Text = "Manufacturer:";
             // 
@@ -177,8 +178,8 @@ namespace ProductList
             this.DeleteButton.AutoSize = true;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Image = global::ProductList.Properties.Resources.iconDelete;
-            this.DeleteButton.Location = new System.Drawing.Point(209, 325);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DeleteButton.Location = new System.Drawing.Point(171, 259);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(58, 58);
             this.DeleteButton.TabIndex = 4;
@@ -192,8 +193,8 @@ namespace ProductList
             this.AddButton.AutoSize = true;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Image = global::ProductList.Properties.Resources.iconAdd;
-            this.AddButton.Location = new System.Drawing.Point(12, 325);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddButton.Location = new System.Drawing.Point(11, 259);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(58, 58);
             this.AddButton.TabIndex = 3;
@@ -204,17 +205,17 @@ namespace ProductList
             // 
             // ProductListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SelectedProductGroupBox);
             this.Controls.Add(this.ProductLabel);
             this.Controls.Add(this.ProductListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "ProductListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

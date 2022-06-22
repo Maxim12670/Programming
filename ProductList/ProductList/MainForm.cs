@@ -109,7 +109,7 @@ namespace ProductList
         /// <summary>
         /// Сортирует по имени.
         /// </summary>
-        private void SortNameProduct()
+        private void SortProduct()
         {
             _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
             ProductListBox.Items.Clear();
@@ -123,9 +123,8 @@ namespace ProductList
         {         
             AddProduct();
             _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
-            SortNameProduct();
-            ProductListBox.SelectedIndex = _allProduct.Count-1;
-
+            SortProduct();
+            ProductListBox.SelectedIndex = _allProduct.Count - 1;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -140,7 +139,7 @@ namespace ProductList
                     ProductListBox.Items.Add(product.Name);
                 ProductListBox.SelectedIndex = _allProduct.Count - 1;
                 ClearInfoText();
-                SortNameProduct();
+                SortProduct();
             }
         }
 
@@ -161,7 +160,7 @@ namespace ProductList
             try
             {
                 _product.Name = NameTextBox.Text;
-                UpdateListBoxInfo();  
+                UpdateListBoxInfo();
             }
             catch
             {
@@ -169,6 +168,7 @@ namespace ProductList
                 return;
             }
             NameTextBox.BackColor = _correctColor;
+            SortProduct();
         }
 
         private void ManufacturerTextBox_TextChanged(object sender, EventArgs e)
