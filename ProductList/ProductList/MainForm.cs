@@ -33,7 +33,7 @@ namespace ProductList
         /// <summary>
         /// Коллекция элементов.
         /// </summary>
-        private List<Product> _allProduct ;
+        private List<Product> _allProducts;
 
         /// <summary>
         /// Создает экземпляр класса <see cref="ProductListForm"/>. 
@@ -41,7 +41,7 @@ namespace ProductList
         public ProductListForm()
         {
             InitializeComponent();
-            _allProduct = new List<Product>();
+            _allProducts = new List<Product>();
             var productCategories = Enum.GetValues(typeof(ProductCategories));
 
             foreach (var value in productCategories)
@@ -67,7 +67,7 @@ namespace ProductList
             Color colorName = NameTextBox.BackColor;
             Color colorManufacturer = ManufacturerTextBox.BackColor;
             Color colorQuantity = QuantityTextBox.BackColor;
-            _allProduct.Add(_product);
+            _allProducts.Add(_product);
             ProductListBox.Items.Add(_product.Name);
         }
 
@@ -111,9 +111,9 @@ namespace ProductList
         /// </summary>
         private void SortProduct()
         {
-            _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
+            _allProducts = _allProducts.OrderBy(product => product.Name).ToList();
             ProductListBox.Items.Clear();
-            foreach (var product in _allProduct)
+            foreach (var product in _allProducts)
             {
                 ProductListBox.Items.Add(product.Name);
             }
@@ -122,9 +122,8 @@ namespace ProductList
         private void AddButton_Click(object sender, EventArgs e)
         {         
             AddProduct();
-            _allProduct = _allProduct.OrderBy(product => product.Name).ToList();
             SortProduct();
-            ProductListBox.SelectedIndex = _allProduct.Count - 1;
+            ProductListBox.SelectedIndex = _allProducts.Count - 1;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -132,14 +131,14 @@ namespace ProductList
             if (ProductListBox.SelectedIndex != -1)
             {
                 int index = ProductListBox.SelectedIndex;
-                _allProduct.RemoveAt(index);
+                _allProducts.RemoveAt(index);
                 ProductListBox.Items.Clear();
 
-                foreach (var product in _allProduct)
+                foreach (var product in _allProducts)
                     ProductListBox.Items.Add(product.Name);
-                ProductListBox.SelectedIndex = _allProduct.Count - 1;
-                ClearInfoText();
+                ProductListBox.SelectedIndex = _allProducts.Count - 1;
                 SortProduct();
+                ClearInfoText();
             }
         }
 
@@ -147,12 +146,14 @@ namespace ProductList
         {
             if (ProductListBox.SelectedIndex == -1) return;
             int index = ProductListBox.SelectedIndex;
-            _product = _allProduct[index];
+            _product = _allProducts[index];
             NameTextBox.Text = _product.Name;
             ManufacturerTextBox.Text = _product.Manufacturer;
             QuantityTextBox.Text = _product.Quantity.ToString();
             CategoryComboBox.Text = _product.Category.ToString();
             UpdateProductInfo(_product);
+            //SortProduct();
+
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -160,7 +161,8 @@ namespace ProductList
             try
             {
                 _product.Name = NameTextBox.Text;
-                UpdateListBoxInfo();
+               UpdateListBoxInfo();
+                
             }
             catch
             {
@@ -168,7 +170,7 @@ namespace ProductList
                 return;
             }
             NameTextBox.BackColor = _correctColor;
-            SortProduct();
+            SortProduct();   
         }
 
         private void ManufacturerTextBox_TextChanged(object sender, EventArgs e)

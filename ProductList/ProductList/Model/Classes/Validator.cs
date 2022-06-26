@@ -34,7 +34,7 @@ namespace ProductList.Model.Classes
         /// <exception cref="ArgumentException">Выбрасывается, когда в строке появляются недопустимые символы.</exception>
         public static void CheckString(string value, string propertyName)
         {
-            Regex regex = new Regex(@"^[A-Za-z]*[A-Za-z]$");
+            Regex regex = new Regex(@"[A-Za-z]*[A-Za-z]$");
             MatchCollection matches = regex.Matches(value);
             if (matches.Count == 0)
             {
