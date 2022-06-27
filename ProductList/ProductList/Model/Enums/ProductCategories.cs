@@ -11,7 +11,7 @@ namespace ProductList.Model.Enums
     /// </summary>
     public enum ProductCategories
     {
-        Non,
+        None,
         Bake,
         Meat,
         Nuts,

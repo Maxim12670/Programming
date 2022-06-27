@@ -52,7 +52,7 @@ namespace ProductList
             this.ProductListBox.FormattingEnabled = true;
             this.ProductListBox.ItemHeight = 17;
             this.ProductListBox.Location = new System.Drawing.Point(11, 30);
-            this.ProductListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ProductListBox.Name = "ProductListBox";
             this.ProductListBox.Size = new System.Drawing.Size(218, 225);
             this.ProductListBox.TabIndex = 0;
@@ -81,9 +81,9 @@ namespace ProductList
             this.SelectedProductGroupBox.Controls.Add(this.ManufacturerLabel);
             this.SelectedProductGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SelectedProductGroupBox.Location = new System.Drawing.Point(233, 30);
-            this.SelectedProductGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SelectedProductGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.SelectedProductGroupBox.Name = "SelectedProductGroupBox";
-            this.SelectedProductGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SelectedProductGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.SelectedProductGroupBox.Size = new System.Drawing.Size(358, 225);
             this.SelectedProductGroupBox.TabIndex = 2;
             this.SelectedProductGroupBox.TabStop = false;
@@ -103,7 +103,7 @@ namespace ProductList
             // 
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameTextBox.Location = new System.Drawing.Point(117, 32);
-            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(237, 26);
             this.NameTextBox.TabIndex = 7;
@@ -115,7 +115,7 @@ namespace ProductList
             this.CategoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(117, 116);
-            this.CategoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CategoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(237, 28);
             this.CategoryComboBox.TabIndex = 6;
@@ -124,7 +124,7 @@ namespace ProductList
             // 
             this.QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.QuantityTextBox.Location = new System.Drawing.Point(117, 86);
-            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.QuantityTextBox.Name = "QuantityTextBox";
             this.QuantityTextBox.Size = new System.Drawing.Size(237, 26);
             this.QuantityTextBox.TabIndex = 5;
@@ -134,7 +134,7 @@ namespace ProductList
             // 
             this.ManufacturerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ManufacturerTextBox.Location = new System.Drawing.Point(117, 59);
-            this.ManufacturerTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ManufacturerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ManufacturerTextBox.Name = "ManufacturerTextBox";
             this.ManufacturerTextBox.Size = new System.Drawing.Size(237, 26);
             this.ManufacturerTextBox.TabIndex = 3;
@@ -175,13 +175,12 @@ namespace ProductList
             // 
             // DeleteButton
             // 
-            this.DeleteButton.AutoSize = true;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Image = global::ProductList.Properties.Resources.iconDelete;
-            this.DeleteButton.Location = new System.Drawing.Point(171, 259);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteButton.Image = global::ProductList.Properties.Resources.Delete;
+            this.DeleteButton.Location = new System.Drawing.Point(157, 260);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(58, 58);
+            this.DeleteButton.Size = new System.Drawing.Size(72, 53);
             this.DeleteButton.TabIndex = 4;
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
@@ -190,13 +189,12 @@ namespace ProductList
             // 
             // AddButton
             // 
-            this.AddButton.AutoSize = true;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Image = global::ProductList.Properties.Resources.iconAdd;
-            this.AddButton.Location = new System.Drawing.Point(11, 259);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddButton.Image = global::ProductList.Properties.Resources.Add;
+            this.AddButton.Location = new System.Drawing.Point(11, 260);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(58, 58);
+            this.AddButton.Size = new System.Drawing.Size(72, 53);
             this.AddButton.TabIndex = 3;
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
@@ -215,11 +213,12 @@ namespace ProductList
             this.Controls.Add(this.ProductLabel);
             this.Controls.Add(this.ProductListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ProductListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product List";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductListForm_FormClosed);
             this.SelectedProductGroupBox.ResumeLayout(false);
             this.SelectedProductGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -238,10 +237,10 @@ namespace ProductList
         private System.Windows.Forms.Label QuantityLabel;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Label ManufacturerLabel;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }
 

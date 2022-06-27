@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProductList.Model.Classes;
 using ProductList.Model.Enums;
+using Newtonsoft.Json;
 
 namespace ProductList
 {
@@ -23,7 +24,7 @@ namespace ProductList
         /// <summary>
         /// Цвет некорректного значения.
         /// </summary>
-        private readonly Color _errorColor = Color.Red;
+        private readonly Color _errorColor = Color.LightPink;
 
         /// <summary>
         /// Выбранный элемент.
@@ -41,7 +42,12 @@ namespace ProductList
         public ProductListForm()
         {
             InitializeComponent();
-            _allProducts = new List<Product>();
+            _allProducts = Serializer.Deserialize();
+            foreach(var value in _allProducts)
+            {
+                ProductListBox.Items.Add(value.Name);
+            }
+
             var productCategories = Enum.GetValues(typeof(ProductCategories));
 
             foreach (var value in productCategories)
@@ -111,19 +117,21 @@ namespace ProductList
         /// </summary>
         private void SortProduct()
         {
-            _allProducts = _allProducts.OrderBy(product => product.Name).ToList();
+            var products = _allProducts.OrderBy(product => product.Name).ToList();
+            _allProducts = products;
             ProductListBox.Items.Clear();
-            foreach (var product in _allProducts)
+            foreach (var product in products)
             {
                 ProductListBox.Items.Add(product.Name);
             }
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        {         
+        {
             AddProduct();
             SortProduct();
-            ProductListBox.SelectedIndex = _allProducts.Count - 1;
+            ProductListBox.SelectedIndex = 0;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -133,11 +141,9 @@ namespace ProductList
                 int index = ProductListBox.SelectedIndex;
                 _allProducts.RemoveAt(index);
                 ProductListBox.Items.Clear();
-
-                foreach (var product in _allProducts)
-                    ProductListBox.Items.Add(product.Name);
-                ProductListBox.SelectedIndex = _allProducts.Count - 1;
                 SortProduct();
+                //foreach (var product in _allProducts)
+                //    ProductListBox.Items.Add(product.Name);
                 ClearInfoText();
             }
         }
@@ -152,8 +158,7 @@ namespace ProductList
             QuantityTextBox.Text = _product.Quantity.ToString();
             CategoryComboBox.Text = _product.Category.ToString();
             UpdateProductInfo(_product);
-            //SortProduct();
-
+            //ProductListBox.SelectedItem = _allProducts.Count - 1;
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -161,8 +166,9 @@ namespace ProductList
             try
             {
                 _product.Name = NameTextBox.Text;
-               UpdateListBoxInfo();
-                
+
+                SortProduct();
+                UpdateListBoxInfo();
             }
             catch
             {
@@ -170,7 +176,7 @@ namespace ProductList
                 return;
             }
             NameTextBox.BackColor = _correctColor;
-            SortProduct();   
+             
         }
 
         private void ManufacturerTextBox_TextChanged(object sender, EventArgs e)
@@ -203,25 +209,29 @@ namespace ProductList
             }
             QuantityTextBox.BackColor = _correctColor;
         }
+        private void ProductListForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Serializer.Serialize(_allProducts);
+        }
 
         private void AddButton_MouseEnter(object sender, EventArgs e)
         {
-            AddButton.Image = global::ProductList.Properties.Resources.iconAddGreen;
+            AddButton.Image = global::ProductList.Properties.Resources.AddGreen;
         }
 
         private void AddButton_MouseLeave(object sender, EventArgs e)
         {
-            AddButton.Image = global::ProductList.Properties.Resources.iconAdd;
+            AddButton.Image = global::ProductList.Properties.Resources.Add;
         }
 
         private void DeleteButton_MouseEnter(object sender, EventArgs e)
         {
-            DeleteButton.Image = global::ProductList.Properties.Resources.iconDeleteRed;
+            DeleteButton.Image = global::ProductList.Properties.Resources.DeleteRed;
         }
 
         private void DeleteButton_MouseLeave(object sender, EventArgs e)
         {
-            DeleteButton.Image = global::ProductList.Properties.Resources.iconDelete;
+            DeleteButton.Image = global::ProductList.Properties.Resources.Delete;
         }
     }
 }

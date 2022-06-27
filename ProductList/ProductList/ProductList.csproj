@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,7 @@
     <Compile Include="Model\Classes\Product.cs" />
     <Compile Include="Model\Classes\Validator.cs" />
     <Compile Include="Model\Enums\ProductCategories.cs" />
+    <Compile Include="Model\Classes\Serializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -70,6 +74,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +95,14 @@
     <Content Include="Icons\iconBasket.ico" />
     <Content Include="Icons\iconDelete.ico" />
     <Content Include="Icons\iconDeleteRed.ico" />
+    <None Include="Resources\DeleteRed.ico" />
+    <None Include="Resources\Delete.ico" />
+    <None Include="Resources\AddGreen.ico" />
+    <None Include="Resources\Add.ico" />
+    <None Include="Resources\DeleteProductIconRed.png" />
+    <None Include="Resources\DeleteProductIcon.png" />
+    <None Include="Resources\AddProductIconGreen.png" />
+    <None Include="Resources\AddProductIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
