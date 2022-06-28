@@ -12,7 +12,14 @@ namespace ProductList.Model.Classes
 {
     public static class Serializer
     {
+        /// <summary>
+        /// Путь к папке "AppData".
+        /// </summary>
         private static string _appDataFolder = Application.UserAppDataPath;
+
+        /// <summary>
+        /// Проводит сериализацию данных.
+        /// </summary>
         public static void Serialize(List<Product> allProducts)
         {
             using (StreamWriter writer = new StreamWriter(_appDataFolder + @"\Serialize.json"))
@@ -20,10 +27,14 @@ namespace ProductList.Model.Classes
                 writer.Write(JsonConvert.SerializeObject(allProducts));
             }
         }
+
+        /// <summary>
+        /// Проводит десериализацию данных.
+        /// </summary>
+        /// <returns>Возвращает коллекцию продуктов.</returns>
         public static List<Product> Deserialize()
         {
             var products = new List<Product>();
-
             try
             {
                 using (StreamReader reader = new StreamReader(_appDataFolder + @"\Serialize.json"))
@@ -37,7 +48,6 @@ namespace ProductList.Model.Classes
             {
                 return products;
             }
-
             return products;
         }
     }

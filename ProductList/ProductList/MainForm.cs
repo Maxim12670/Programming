@@ -124,7 +124,6 @@ namespace ProductList
             {
                 ProductListBox.Items.Add(product.Name);
             }
-
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -142,8 +141,6 @@ namespace ProductList
                 _allProducts.RemoveAt(index);
                 ProductListBox.Items.Clear();
                 SortProduct();
-                //foreach (var product in _allProducts)
-                //    ProductListBox.Items.Add(product.Name);
                 ClearInfoText();
             }
         }
@@ -158,17 +155,17 @@ namespace ProductList
             QuantityTextBox.Text = _product.Quantity.ToString();
             CategoryComboBox.Text = _product.Category.ToString();
             UpdateProductInfo(_product);
-            //ProductListBox.SelectedItem = _allProducts.Count - 1;
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _product.Name = NameTextBox.Text;
-
-                SortProduct();
+                string name = NameTextBox.Text;
+                _product.Name = name;
                 UpdateListBoxInfo();
+                SortProduct();
+                //UpdateListBoxInfo();
             }
             catch
             {
@@ -176,7 +173,6 @@ namespace ProductList
                 return;
             }
             NameTextBox.BackColor = _correctColor;
-             
         }
 
         private void ManufacturerTextBox_TextChanged(object sender, EventArgs e)
