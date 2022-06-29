@@ -90,15 +90,6 @@ namespace ProductList
         }
 
         /// <summary>
-        /// Обновляет информацию.
-        /// </summary>
-        private void UpdateListBoxInfo()
-        {
-            int index = ProductListBox.SelectedIndex;
-            ProductListBox.Items[index] = _product.Name;           
-        }
-
-        /// <summary>
         /// Очищает текстовые поля.
         /// </summary>
         private void ClearInfoText()
@@ -130,7 +121,7 @@ namespace ProductList
         {
             AddProduct();
             SortProduct();
-            ProductListBox.SelectedIndex = 0;
+            ProductListBox.SelectedIndex = ProductListBox.Items.Count - 1;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -161,10 +152,17 @@ namespace ProductList
         {
             try
             {
+                var index = ProductListBox.SelectedIndex;
                 string name = NameTextBox.Text;
                 _product.Name = name;
-                UpdateListBoxInfo();
                 SortProduct();
+                for(int i = 0; i < _allProducts.Count; i++)
+                {
+                    if (_allProducts[i] == _product)
+                    {
+                        ProductListBox.SelectedIndex = i;
+                    }
+                }
             }
             catch
             {

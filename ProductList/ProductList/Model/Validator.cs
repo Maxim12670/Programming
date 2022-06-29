@@ -34,11 +34,12 @@ namespace ProductList.Model
         /// <exception cref="ArgumentException">Выбрасывается, когда в строке появляются недопустимые символы.</exception>
         public static void CheckString(string value, string propertyName)
         {
-            Regex regex = new Regex(@"[A-Za-z]*[A-Za-z]$");
-            MatchCollection matches = regex.Matches(value);
-            if (matches.Count == 0)
+            for (var i = 0; i < value.Length; i++)
             {
-                throw new ArgumentException(message: $"Error in {propertyName}!");
+                if (!char.IsLetter(value[i]))
+                {
+                    throw new ArgumentException($"{propertyName} must contains letters only");
+                }
             }
         }
     }
