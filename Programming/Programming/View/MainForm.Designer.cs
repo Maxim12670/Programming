@@ -39,12 +39,12 @@ namespace Programming.View
             this.MovieGroupBox = new System.Windows.Forms.GroupBox();
             this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
-            this.seasonControl1 = new Programming.View.SeasonControl();
-            this.weekdayControl1 = new Programming.View.WeekdayControl();
-            this.allEnumerationsControl1 = new Programming.View.AllEnumerationsControl();
-            this.moviesControl1 = new Programming.View.MoviesControl();
-            this.rectanglesControl1 = new Programming.View.RectanglesControl();
-            this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
+            this.seasonControl1 = new Programming.View.Controls.SeasonControl();
+            this.weekdayControl1 = new Programming.View.Controls.WeekdayControl();
+            this.allEnumerationsControl1 = new Programming.View.Controls.AllEnumerationsControl();
+            this.moviesControl1 = new Programming.View.Controls.MoviesControl();
+            this.rectanglesControl1 = new Programming.View.Controls.RectanglesControl();
+            this.rectanglesCollisionControl1 = new Programming.View.Controls.RectanglesCollisionControl();
             this.ClassesTabControl.SuspendLayout();
             this.EnumerationsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -254,12 +254,12 @@ namespace Programming.View
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.GroupBox MovieGroupBox;
         private System.Windows.Forms.TabPage RectanglesTabPage;
-        private Panels.RectanglesCollisionControl rectanglesCollisionControl1;
-        private SeasonControl seasonControl1;
-        private WeekdayControl weekdayControl1;
-        private RectanglesControl rectanglesControl1;
-        private MoviesControl moviesControl1;
-        private AllEnumerationsControl allEnumerationsControl1;
+        private Controls.RectanglesCollisionControl rectanglesCollisionControl1;
+        private Controls.SeasonControl seasonControl1;
+        private Controls.WeekdayControl weekdayControl1;
+        private Controls.RectanglesControl rectanglesControl1;
+        private Controls.MoviesControl moviesControl1;
+        private Controls.AllEnumerationsControl allEnumerationsControl1;
     }
 }
 

@@ -11,7 +11,7 @@ using Programming.Model;
 using Programming.Model.Enums;
 using Rectangle = Programming.Model.Classes.Rectangle;
 
-namespace Programming.View
+namespace Programming.View.Controls
 {
     public partial class RectanglesControl : UserControl
     {

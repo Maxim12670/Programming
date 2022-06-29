@@ -1,5 +1,5 @@
 ﻿
-namespace Programming.View
+namespace Programming.View.Controls
 {
     partial class SeasonControl
     {

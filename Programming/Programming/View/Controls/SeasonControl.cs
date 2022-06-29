@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
 
-namespace Programming.View
+namespace Programming.View.Controls
 {
     public partial class SeasonControl : UserControl
     {

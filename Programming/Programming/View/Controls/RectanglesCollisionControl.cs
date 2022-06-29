@@ -7,7 +7,7 @@ using Rectangle = Programming.Model.Classes.Rectangle;
 using Point2D = Programming.Model.Classes.Point2D;
 using Programming.Model.Classes;
 
-namespace Programming.View.Panels
+namespace Programming.View.Controls
 {
     public partial class RectanglesCollisionControl : UserControl
     {

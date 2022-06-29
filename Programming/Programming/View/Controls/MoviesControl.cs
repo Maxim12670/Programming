@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Programming.Model.Enums;
 using Programming.Model.Classes;
 
-namespace Programming.View
+namespace Programming.View.Controls
 {
     /// <summary>
     /// Представляет реализацию по представлению фильмов.

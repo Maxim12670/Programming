@@ -1,5 +1,5 @@
 ﻿
-namespace Programming.View
+namespace Programming.View.Controls
 {
     partial class AllEnumerationsControl
     {
@@ -70,7 +70,7 @@ namespace Programming.View
             // 
             // IntValueTextBox
             // 
-            this.IntValueTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.IntValueTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.IntValueTextBox.Location = new System.Drawing.Point(419, 21);
             this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(4);
