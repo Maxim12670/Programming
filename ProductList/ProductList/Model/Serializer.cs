@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using ProductList.Model.Classes;
+using ProductList.Model;
 using System.Windows.Forms;
 
-namespace ProductList.Model.Classes
+namespace ProductList.Model
 {
     public static class Serializer
     {
@@ -18,11 +18,16 @@ namespace ProductList.Model.Classes
         private static string _appDataFolder = Application.UserAppDataPath;
 
         /// <summary>
+        /// Имя файла.
+        /// </summary>
+        private static string _nameFile = @"\Serialize.json";
+
+        /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
         public static void Serialize(List<Product> allProducts)
         {
-            using (StreamWriter writer = new StreamWriter(_appDataFolder + @"\Serialize.json"))
+            using (StreamWriter writer = new StreamWriter(_appDataFolder + _nameFile))
             {
                 writer.Write(JsonConvert.SerializeObject(allProducts));
             }
@@ -37,7 +42,7 @@ namespace ProductList.Model.Classes
             var products = new List<Product>();
             try
             {
-                using (StreamReader reader = new StreamReader(_appDataFolder + @"\Serialize.json"))
+                using (StreamReader reader = new StreamReader(_appDataFolder + _nameFile))
                 {
                     products = JsonConvert.DeserializeObject<List<Product>>(reader.ReadToEnd());
                 }

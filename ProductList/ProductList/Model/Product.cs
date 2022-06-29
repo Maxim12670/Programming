@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProductList.Model.Enums;
 
-namespace ProductList.Model.Classes
+namespace ProductList.Model
 {
     public class Product
     {

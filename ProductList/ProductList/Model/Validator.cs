@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace ProductList.Model.Classes
+namespace ProductList.Model
 {
     /// <summary>
     /// Предоставляет методы для проверки входных данных.

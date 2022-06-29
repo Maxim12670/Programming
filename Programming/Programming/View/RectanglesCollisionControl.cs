@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
 using Rectangle = Programming.Model.Classes.Rectangle;
@@ -77,14 +72,16 @@ namespace Programming.View.Panels
             _currentRectangle.Width = _random.Next(1, 100);
             _currentRectangle.Length = _random.Next(1, 100);
             _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-            _currentRectangle.Center = new Point2D(_random.Next(1, RectanglesPanel.Width), _random.Next(1, RectanglesPanel.Height));
+            _currentRectangle.Center = new Point2D(_random.Next(1, RectanglesPanel.Width),
+                _random.Next(1, RectanglesPanel.Height));
             _rectangles.Add(_currentRectangle);
             RectanglesSelectedListBox.Items.Add($"{_currentRectangle.Id}:" +
-                $"X= {_currentRectangle.Center.X}" +
-                $"Y= {_currentRectangle.Center.Y}" +
-                $"W= {_currentRectangle.Width}" +
-                $"H= {_currentRectangle.Length}");
+                $"X: {_currentRectangle.Center.X}; " +
+                $"Y: {_currentRectangle.Center.Y}; " +
+                $"W: {_currentRectangle.Width}; " +
+                $"H: {_currentRectangle.Length}.");
             return _currentRectangle;
+
         }
 
         private void AddPanelRectangles(Rectangle rectangle)
@@ -125,10 +122,10 @@ namespace Programming.View.Panels
         private string FormattedText(Rectangle rectangle)
         {
             return $"{rectangle.Id}:" +
-                $"X= {rectangle.Center.X}" +
-                $"Y= {rectangle.Center.Y}" +
-                $"W= {rectangle.Width}" +
-                $"H= {rectangle.Length}";
+                   $"(X: {rectangle.Center.X};" +
+                   $"Y: {rectangle.Center.Y};" +
+                   $"W: {rectangle.Width};" +
+                   $"H: {rectangle.Length})";
         }
 
         /// <summary>

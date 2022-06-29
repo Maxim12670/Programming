@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProductList.Model.Classes;
+using ProductList.Model;
 using ProductList.Model.Enums;
 using Newtonsoft.Json;
 
@@ -165,7 +165,6 @@ namespace ProductList
                 _product.Name = name;
                 UpdateListBoxInfo();
                 SortProduct();
-                //UpdateListBoxInfo();
             }
             catch
             {
